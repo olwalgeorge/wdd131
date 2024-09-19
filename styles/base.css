@@ -25,7 +25,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-color: #007bff;
+    background-color: #0069d9;
     color: #fff;    
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -53,6 +53,14 @@ body {
 h1 {
     font-family: "Roboto", sans-serif;
     font-weight: 100;
+    font-style: normal;
+    color: #ffff;
+    text-align: center;
+}
+
+h2 {
+    font-family: "Roboto", sans-serif;
+    font-weight: 200;
     font-style: normal;
     color: #ffff;
     text-align: center;
@@ -99,7 +107,7 @@ p {
 }
 .aside h2, .card h2 {
     text-align: center;
-    background-color: #007bff;
+    background-color: #0069d9;
     color: white;
     padding: 0.75rem;
     border-radius: 8px 8px 0 0;
