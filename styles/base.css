@@ -41,12 +41,12 @@ body {
 
 .footer-content {
     text-align: center;
-    color: #fff;
+    color: white;
     background-color: #0069d9;
     padding: 0.75rem;
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);    
+    font-weight: 200;
     
 }
 
