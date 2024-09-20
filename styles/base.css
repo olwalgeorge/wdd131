@@ -173,8 +173,8 @@ img {
 
 @media (max-width: 768px) {
     .main-content {
-        grid-template-columns: minmax(0, 1fr);
-        height: fit-content;
+        grid-template-columns: 1fr;
+        height: auto;
         
     }
     
