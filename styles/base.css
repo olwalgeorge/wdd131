@@ -43,10 +43,10 @@ body {
     text-align: center;
     color: white;
     background-color: #0069d9;
-    padding: 0.75rem;
+    padding: 1.5rem;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);    
-    font-weight: 200;
+    font-weight: 300;
     
 }
 
@@ -56,15 +56,16 @@ h1 {
     font-style: normal;
     color: #ffff;
     text-align: center;
+    padding: 0.751rem;
 }
 
-h2 {
+/* h2 {
     font-family: "Roboto", sans-serif;
-    font-weight: 200;
+    font-weight: 300;
     font-style: normal;
     color: #ffff;
     text-align: center;
-}
+} */
 
 .navigation {
     list-style: none;
