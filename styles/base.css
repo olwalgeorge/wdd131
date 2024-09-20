@@ -173,7 +173,30 @@ img {
 
 @media (max-width: 768px) {
     .main-content {
-        grid-template-columns: 1fr;
-        height: auto;
+        grid-template-columns: minmax(0, 1fr);
+        height: fit-content;
+        
     }
-}
+    
+    .about-me, .flag {       
+        
+        flex-direction: column;
+        align-items: center;
+    }
+        
+    .flag {
+        justify-content: center;
+    }    
+    
+    .about-me img, .flag img {
+        width: 100%;
+        height: auto;
+        margin-top: 0.75rem;
+    }
+    
+    .about-me p, .flag p {
+        text-align: center;
+    }
+    
+}  
+
