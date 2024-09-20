@@ -7,6 +7,7 @@
 body {
     font-family: "Roboto", sans-serif;
     font-weight: 400;
+    font-style: normal;
     background-color: #f4f4f9;
     color: #333;
 }
@@ -59,20 +60,12 @@ h1 {
     padding: 0.751rem;
 }
 
-/* h2 {
-    font-family: "Roboto", sans-serif;
-    font-weight: 300;
-    font-style: normal;
-    color: #ffff;
-    text-align: center;
-} */
-
 .navigation {
     list-style: none;
     display: flex;
     background-color: #333;
     align-items: center;
-    border-radius: 8px;
+    border-radius: 0 0 8px 8px;
     overflow: hidden;
 }
 .navigation li {
