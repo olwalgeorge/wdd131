@@ -1,6 +1,11 @@
+/**
+ * W01 Assignment: Home Page
+ * gets the current year and formats the last modified date
+ * @author George Olwal
+ */
+
 const currentyear = document.querySelector("#currentyear");
 const lastModifiedElement = document.getElementById('lastModified');
-
 
 currentyear.textContent = new Date().getFullYear();
 
