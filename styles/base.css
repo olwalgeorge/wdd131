@@ -17,9 +17,7 @@ body {
     display: grid;
     grid-template-rows: 1fr auto 1fr;
     grid-row-gap: 20px;
-    max-width: 70vw;
-    min-width: min-content;
-    min-height: min-content;
+    max-width: 70vw;   
 }
 
 .header-content {
@@ -118,6 +116,8 @@ p {
     color: white;
     padding: 0.75rem;
     border-radius: 8px 8px 0 0;
+    white-space: nowrap;
+    
 }
 
 .aside-url {
@@ -139,7 +139,7 @@ p {
 
 .card-content {
     display: grid;
-    grid-template-rows: 4fr auto 4fr;
+    grid-template-rows: auto auto auto; 
 }
 
 .card-name {
@@ -151,27 +151,28 @@ p {
 
 .about-me, .flag {
     display: flex;
-    padding: 0.75rem;
+    margin: 0.75rem;
 }
 
 h3 {
     padding: 0.75rem;
 }
 
-img {
-
-    height: 130px;
-    width: auto;    
+img {        
     border-radius: 8px; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
     border: none; 
 }
 
 .about-me img {
+    height: 150px;
+    width: auto;
     justify-content: flex-end;
     margin-left: 0.75rem;
 }
 .flag img {
+    height: 100px;
+    width: auto;
     justify-content: flex-start;
     margin-right: 0.75rem;
 }
@@ -189,6 +190,10 @@ img {
 }
 
 @media (max-width: 768px) {
+    .parent {
+        max-width: 90vw;
+    }
+
     .main-content {
         grid-template-columns: 1fr;
         height: auto;
@@ -199,21 +204,25 @@ img {
         
         flex-direction: column;
         align-items: center;
-    }
-        
-    .flag {
         justify-content: center;
-    }    
+        
+    }
     
     .about-me img, .flag img {
-        width: 100%;
+        min-width: 40vw;
+        max-width: 50vw;
         height: auto;
-        margin-top: 0.75rem;
+        margin: 0.75rem auto 0.75rem;
+        
     }
     
     .about-me p, .flag p {
-        text-align: center;
+        text-align: center;        
     }
-    
+
+    .flag P {
+        padding-top: 0.7rem;
+    }
+
 }  
 
