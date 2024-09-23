@@ -57,6 +57,9 @@ h1 {
     text-align: center;
     padding: 0.751rem;
 }
+#span-h1 {
+    color: #FFD3AC;
+}
 
 .navigation {
     list-style: none;
