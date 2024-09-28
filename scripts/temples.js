@@ -21,16 +21,6 @@ const dateOptions = { year: 'numeric', month: '2-digit', day: '2-digit', hour: '
 const usDateFormat = new Intl.DateTimeFormat('en-US', dateOptions).format(date);
 lastModifiedElement.textContent = usDateFormat;
 
-// Get the image element
-const images = document.querySelectorAll('img');
-const figcaptions = document.querySelectorAll('figcaption');
-
-// For every image, caption is image file name with hyphens replaced with spaces 
-images.forEach((img, index) => {
-    const fileName = img.src.split('/').pop().split('.')[0].replace(/-/g, ' ');
-    const titleCaseCaption = fileName.replace(/\b\w/g, l => l.toUpperCase());
-    figcaptions[index].textContent = titleCaseCaption;
-});
 
 
 
