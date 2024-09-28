@@ -1,0 +1,164 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body {
+	margin: 0.5rem auto;
+	font-family: Roboto, sans-serif;
+	display: grid;
+	grid-template-rows: 1fr auto 1fr;
+	grid-gap: 10px;
+	
+}
+
+header {
+	align-items: center;
+	padding: 1rem;
+	background-color: #0069d9;
+	color: #fff;
+	border-radius: 8px;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+}
+
+main > div {
+	margin: 0.75rem auto ;
+	display: grid;
+	grid-template-rows: repeat(auto-fit, minmax(200px, 1fr));
+	grid-gap: 10px;
+	place-items: center;
+
+}
+
+h2 {
+	text-align: center;
+	
+}
+
+img {
+	object-fit: cover;
+	width: 100%;
+	height: auto;
+	border-radius: 8px;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	border: none;
+
+}
+figcaption{
+	
+	text-align: center;
+	font-style: italic;
+	font-weight: 700;
+	font-size: smaller;
+	
+}
+
+/* Mobile View ***************/
+#menu {
+	display: block;
+	font-size: 2rem;
+	font-weight:700;
+	text-decoration: none;
+	padding: .5rem .75rem;
+	background-color: #0069d9;
+	color: #fff;
+}
+
+
+
+#menu::before {
+	content: "≡";
+	position: absolute;
+	top: 10px;
+	right: 0;
+	padding: .5rem .75rem;
+}
+
+nav {
+	background-color: #0069d9;
+}
+.navigation {
+	list-style: none;
+	margin: 0 auto;
+	max-width: 760px;
+}
+
+.navigation li {
+	display: none;
+}
+.navigation a {
+	display: block;
+	padding: 0.75rem;
+	text-align: center;
+	text-decoration: none;
+	color: #fff;
+	font-weight: 700;
+	transition: 0.5s;
+	font-size: clamp(1rem, 2vmin, 1.5rem);
+}
+
+.navigation a:hover, navigation a:active {
+	color: white;
+	background-color: black;
+}
+
+.show li {
+	display: block;
+}
+
+.hide {
+	display: none;
+}
+#menu.show::before {
+	content: "X";
+}
+
+footer {
+	text-align: center;
+    color: white;
+    background-color: #0069d9;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);    
+    font-weight: 300;
+}
+/* Media Query for wider than mobile viewports. Breakpoint should be based upon the design and content and use em units to be relative to the user's font size versus fixed with pixels.  
+
+In most WDD courses there is a requirement to use a separate file. This part would go into a separate CSS file. 
+*/
+@media only screen and (min-width: 600px) {
+	
+
+	header {
+		display: flex;
+		justify-content: space-between;
+		
+	}
+
+	h1 {
+		font-size: 2vw;
+	}
+
+	main > div {
+		margin: 1rem 4rem;
+	}
+	
+	.navigation {
+		display: flex;
+	}
+	.navigation li {
+		display: block; 
+		flex: 1 1 100%;
+	}
+	.navigation a {
+		text-align: center;
+	}
+	main div {		
+		grid-template-columns: 1fr 1fr;		
+	}
+	
+	#menu {
+		display: none;
+	}
+}

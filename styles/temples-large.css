@@ -1,0 +1,16 @@
+@media only screen and (min-width: 900px) {
+body {
+    max-width: 80vw;
+}
+
+main > div{
+    
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    
+       
+}
+
+
+
+}
