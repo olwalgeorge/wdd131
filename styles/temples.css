@@ -15,7 +15,7 @@ body {
 header {
 	align-items: center;
 	padding: 1rem;
-	background-color: #0069d9;
+	background-color: #424242;
 	color: #fff;
 	border-radius: 8px;
 	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -61,8 +61,8 @@ figcaption{
 	font-weight:700;
 	text-decoration: none;
 	padding: .5rem .75rem;
-	background-color: #0069d9;
 	color: #fff;
+	background-color: #424242;
 }
 
 
@@ -76,7 +76,7 @@ figcaption{
 }
 
 nav {
-	background-color: #0069d9;
+	background-color: #424242;
 }
 .navigation {
 	list-style: none;
@@ -117,16 +117,13 @@ nav {
 footer {
 	text-align: center;
     color: white;
-    background-color: #0069d9;
+    background-color: #424242;
     padding: 1.5rem;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);    
     font-weight: 300;
 }
-/* Media Query for wider than mobile viewports. Breakpoint should be based upon the design and content and use em units to be relative to the user's font size versus fixed with pixels.  
 
-In most WDD courses there is a requirement to use a separate file. This part would go into a separate CSS file. 
-*/
 @media only screen and (min-width: 600px) {
 	
 
