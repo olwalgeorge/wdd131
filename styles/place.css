@@ -1,18 +1,24 @@
 :root {
+    --primary-color:red;
+    --secondary-color: green;
     --primary-gradient: linear-gradient(to right, #008000, #00ff00)
+    --visited-color: #6495ED;
+    --hover-color: #F2C464;
+    
 }
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    font-family: 'Roboto', sans-serif;
 }
 
 header {
-    background-color: #d32f2f;
+    background: var(--primary-color);
     color: white;
     text-align: center;
     padding: 0.75rem;    
-    border-bottom: 1rem solid green;
+    border-bottom: 1rem solid var(--secondary-color);
     
 }
 
@@ -52,7 +58,7 @@ header {
 }
 
 footer {
-    background-color: #d32f2f;
+    background: var(--primary-color) ;
     color: white;
     text-align: center;
     padding: 10px;
@@ -60,6 +66,14 @@ footer {
 picture {
     width: 100%;
     height: auto;
+}
+
+a:visited, a:hover {
+    color: var(--visited-color);
+}
+
+a:link, a:active {
+    color: var(--link-color);
 }
 
 @media (min-width: 900px) {
@@ -74,7 +88,7 @@ picture {
         height: auto;        
         
         position: relative;
-        background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), url('images/image-large.webp'); 
+        background-image: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), url('images/image-large.webp'); 
         background-size: cover;
         background-position: center;
     }
