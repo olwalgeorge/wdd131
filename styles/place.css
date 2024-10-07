@@ -35,7 +35,7 @@ header {
 
 .data p, .weather p {
     display: flex;
-    justify-content: justify;
+   
 
 }
 
