@@ -1,0 +1,121 @@
+:root {
+    --primary-gradient: linear-gradient(to right, #008000, #00ff00)
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #d32f2f;
+    color: white;
+    text-align: center;
+    padding: 0.75rem;    
+    border-bottom: 1rem solid green;
+    
+}
+
+.main-image {
+    width: 100%;
+}
+
+.data, .weather {
+    padding: 15px;
+}
+
+.data h2, .weather h2 {
+    margin-top: 0;
+    text-align: center;
+}
+
+.data p, .weather p {
+    display: flex;
+    justify-content: justify;
+
+}
+
+.label {
+    font-weight: bold;
+    width: 50%; 
+    text-align: right;
+    margin-right: 10px;
+}
+#w-icon {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.data p span, .weather p span {
+    display: inline-block;
+}
+
+footer {
+    background-color: #d32f2f;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+picture {
+    width: 100%;
+    height: auto;
+}
+
+@media (min-width: 900px) {
+    main {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        max-width: 80vw;
+        margin: 0 auto;
+        position: relative;
+        background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), url('images/image-large.webp'); 
+        background-size: cover;
+        background-position: center;
+    }
+    
+    .data, .weather {
+        position: absolute;
+        width: 300px;
+        padding: 20px;
+        background-color: rgba(249, 249, 249, 0.9);
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .data {
+        top: 20px;
+        left: 20px;
+    }
+    
+    .weather {
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    .data h2, .weather h2 {
+        position: relative;
+        background: var(--primary-gradient);
+        color: white;
+        padding: 10px 20px;
+        margin: 10px 20px 20px -40px; 
+        border-radius: 8px 8px 0 0;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }    
+   
+
+    .weather h2::after {
+        content: "⛅"; 
+        font-size: 24px;
+        margin-left: 10px;
+        display: inline-block;
+        vertical-align: middle;
+    }
+    
+    
+    #w-icon {
+            display: none; 
+        }
+
+}

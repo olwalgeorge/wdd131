@@ -1,5 +1,6 @@
 body {
 	font-family: Roboto, helvetica, sans-serif;
+    margin: 1rem;
 }
 
 header,
@@ -9,9 +10,10 @@ footer {
 	margin: 0 auto;
 }
 
-marquee {
+.banner {
 	padding: 1rem;
 	background-color: #eee;
+	text-align: center;
 }
 
 h1 {
@@ -19,28 +21,40 @@ h1 {
 }
 
 main {
-	display: grid;
+	display: grid;    
+    grid-template-columns: 4fr 1fr;
+    
+    
 }
 
 h2 {
 	color: navy;
 	text-align: left;
+    grid-column: span 2;
+}
+
+h3 {
+    padding-left: 2rem;
+    
 }
 
 article p {
 	text-align: justify;
+    padding-left: 2rem;
+    
 }
 
 .callout {
-	color: #777;
-	background-color: #702963;
-	padding: 1rem;
+    grid-column: span 2;
+	color: #ffffff;
+	background-color: #4b0082;
+	padding: 1rem; /* Fix for padding issue */
 }
 
 footer {
 	margin-top: 1rem;
 	border-top: 1px solid rgba(0, 0, 0, 0.1);
 	font-size: smaller;
-	text-align: right;
+	text-align: left;
 }
 
