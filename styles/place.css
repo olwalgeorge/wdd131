@@ -63,12 +63,16 @@ picture {
 }
 
 @media (min-width: 900px) {
+
+    body {
+        max-width: 80vw;
+        margin: 0 auto;
+    }
     main {
         display: flex;
         flex-direction: column;
-        height: auto;
-        max-width: 80vw;
-        margin: 0 auto;
+        height: auto;        
+        
         position: relative;
         background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), url('images/image-large.webp'); 
         background-size: cover;
