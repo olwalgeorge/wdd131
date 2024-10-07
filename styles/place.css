@@ -2,8 +2,6 @@
     --primary-color:red;
     --secondary-color: green;
     --primary-gradient: linear-gradient(to right, #008000, #00ff00)
-    --visited-color: #6495ED;
-    --hover-color: #F2C464;
     
 }
 body {
