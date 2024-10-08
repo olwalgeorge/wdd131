@@ -3,6 +3,7 @@
     --secondary-color: green;
     --primary-gradient: linear-gradient(to right, #008000, #00ff00)
     
+    
 }
 body {
     margin: 0;
@@ -63,14 +64,6 @@ footer {
 picture {
     width: 100%;
     height: auto;
-}
-
-a:visited, a:hover {
-    color: var(--visited-color);
-}
-
-a:link, a:active {
-    color: var(--link-color);
 }
 
 @media (min-width: 900px) {
