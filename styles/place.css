@@ -121,11 +121,9 @@ picture {
     }
 
     .weather-title::after {
-        content: none;
-    }
-
-    .weather-icon {
         display: inline;
+        content: "⛅";
     }
+   
 }
 
