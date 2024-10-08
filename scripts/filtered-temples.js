@@ -1,4 +1,5 @@
 
+const templeGrid = document.querySelector('.container');
 const temples = [
 	{
 	  templeName: "Aba Nigeria",
@@ -82,40 +83,83 @@ const temples = [
 	  "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/copenhagen-denmark/400x250/copenhagen-denmark-temple-lds-278232-wallpaper.jpg"
 	},
 
-  ];
-
-  const templeGrid = document.querySelector('.container');
-  temples.forEach((temple) => {
-    const templeCard = document.createElement('figure');
-    const templeImage = document.createElement('img');
-    const templeCaption = document.createElement('figcaption');
-    const templeName = document.createElement('h2');
-    const templeLocation = document.createElement('p');
-    const templeDedicationDate = document.createElement('p');
-    const templeArea = document.createElement('p');
-
-    templeName.textContent = temple.templeName;
-    templeLocation.textContent = `Location: ${temple.location}`;
-    templeDedicationDate.textContent = `Dedicated: ${temple.dedicated}`;
-    templeArea.textContent = `Area: ${temple.area} sq ft`;
-
-    templeImage.src = temple.imageUrl;
-    templeImage.alt = temple.templeName;
-    templeImage.loading = 'lazy';
-
-    templeCaption.appendChild(templeName);
-    templeCaption.appendChild(templeLocation);
-    templeCaption.appendChild(templeDedicationDate);
-    templeCaption.appendChild(templeArea);
-
-    templeCard.appendChild(templeImage);
-    templeCard.appendChild(templeCaption);
-
-    templeGrid.appendChild(templeCard);
-
-	
+  ]; 
+ 
+ // Call filterTemples on page load to display all temples
+window.addEventListener('load', () => {
+	filterTemples('home');
   });
-
+  
+  // Add event listeners to navigation menu items
+  document.querySelectorAll('.navigation li a').forEach((link) => {
+	link.addEventListener('click', (e) => {
+	  e.preventDefault();
+	  const filterType = link.id;
+	  filterTemples(filterType);
+	});
+  });
+  
+  // Function to filter temples based on filter type
+  function filterTemples(filterType) {
+	templeGrid.innerHTML = ''; // clear the container
+	let filteredTemples = temples;
+  
+	switch (filterType) {
+	  case 'old':
+		filteredTemples = temples.filter((temple) => {
+		  const date = new Date(temple.dedicated);
+		  return date.getFullYear() < 1980;
+		});
+		break;
+	  case 'new':
+		filteredTemples = temples.filter((temple) => {
+		  const date = new Date(temple.dedicated);
+		  return date.getFullYear() > 2000;
+		});
+		break;
+	  case 'large':
+		filteredTemples = temples.filter((temple) => temple.area > 90000);
+		break;
+	  case 'small':
+		filteredTemples = temples.filter((temple) => temple.area < 10000);
+		break;
+	  default:
+		filteredTemples = temples; // display all temples for 'home' filter
+	}
+  
+	// Create temple cards for filtered temples
+	filteredTemples.forEach((temple) => {
+	  const templeCard = document.createElement('figure');
+	  const templeImage = document.createElement('img');
+	  const templeCaption = document.createElement('figcaption');
+	  const templeName = document.createElement('h2');
+	  const templeLocation = document.createElement('p');
+	  const templeDedicationDate = document.createElement('p');
+	  const templeArea = document.createElement('p');
+  
+	  templeName.textContent = temple.templeName;
+	  templeLocation.textContent = `Location: ${temple.location}`;
+	  const date = new Date(temple.dedicated);
+	  const usDateFormat = new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'long', day: '2-digit' }).format(date);
+	  templeDedicationDate.textContent = `Dedicated: ${usDateFormat}`;
+	  templeArea.textContent = `Area: ${temple.area} sq ft`;
+  
+	  templeImage.src = temple.imageUrl;
+	  templeImage.alt = temple.templeName;
+	  templeImage.loading = 'lazy';
+  
+	  templeCaption.appendChild(templeName);
+	  templeCaption.appendChild(templeLocation);
+	  templeCaption.appendChild(templeDedicationDate);
+	  templeCaption.appendChild(templeArea);
+  
+	  templeCard.appendChild(templeImage);
+	  templeCard.appendChild(templeCaption);
+  
+	  templeGrid.appendChild(templeCard);
+	});
+  }
+  
 
 
 const mainnav = document.querySelector('.navigation')
