@@ -1,5 +1,5 @@
 
-const templeGrid = document.querySelector('.container');
+
 const temples = [
 	{
 	  templeName: "Aba Nigeria",
@@ -85,107 +85,84 @@ const temples = [
 
   ]; 
  
- // Call filterTemples on page load to display all temples
-window.addEventListener('load', () => {
-	filterTemples('home');
+  const templeGrid = document.querySelector('.container');
+  const menuButton = document.getElementById('menu');
+  const navigation = document.querySelector('.navigation');
+  const currentYearSpan = document.getElementById('currentyear');
+  const lastModifiedSpan = document.getElementById('lastModified');
+  
+  // Toggle menu
+  menuButton.addEventListener('click', () => {
+	  navigation.classList.toggle('show');
+	  menuButton.setAttribute('aria-expanded', navigation.classList.contains('show'));
   });
   
-  // Add event listeners to navigation menu items
-  document.querySelectorAll('.navigation li a').forEach((link) => {
-	link.addEventListener('click', (e) => {
-	  e.preventDefault();
-	  const filterType = link.id;
-	  filterTemples(filterType);
-	});
-  });
+  // Set current year and last modified date
+  currentYearSpan.textContent = new Date().getFullYear();
+  lastModifiedSpan.textContent = new Date(document.lastModified).toLocaleString();
   
-  // Function to filter temples based on filter type
-  function filterTemples(filterType) {
-	templeGrid.innerHTML = ''; // clear the container
-	let filteredTemples = temples;
-  
-	switch (filterType) {
-	  case 'old':
-		filteredTemples = temples.filter((temple) => {
-		  const date = new Date(temple.dedicated);
-		  return date.getFullYear() < 1980;
-		});
-		break;
-	  case 'new':
-		filteredTemples = temples.filter((temple) => {
-		  const date = new Date(temple.dedicated);
-		  return date.getFullYear() > 2000;
-		});
-		break;
-	  case 'large':
-		filteredTemples = temples.filter((temple) => temple.area > 90000);
-		break;
-	  case 'small':
-		filteredTemples = temples.filter((temple) => temple.area < 10000);
-		break;
-	  default:
-		filteredTemples = temples; // display all temples for 'home' filter
-	}
-  
-	// Create temple cards for filtered temples
-	filteredTemples.forEach((temple) => {
-	  const templeCard = document.createElement('figure');
-	  const templeImage = document.createElement('img');
-	  const templeCaption = document.createElement('figcaption');
-	  const templeName = document.createElement('h2');
-	  const templeLocation = document.createElement('p');
-	  const templeDedicationDate = document.createElement('p');
-	  const templeArea = document.createElement('p');
-  
-	  templeName.textContent = temple.templeName;
-	  templeLocation.textContent = `Location: ${temple.location}`;
-	  const date = new Date(temple.dedicated);
-	  const usDateFormat = new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'long', day: '2-digit' }).format(date);
-	  templeDedicationDate.textContent = `Dedicated: ${usDateFormat}`;
-	  templeArea.textContent = `Area: ${temple.area} sq ft`;
-  
-	  templeImage.src = temple.imageUrl;
-	  templeImage.alt = temple.templeName;
-	  templeImage.loading = 'lazy';
-  
-	  templeCaption.appendChild(templeName);
-	  templeCaption.appendChild(templeLocation);
-	  templeCaption.appendChild(templeDedicationDate);
-	  templeCaption.appendChild(templeArea);
-  
-	  templeCard.appendChild(templeImage);
-	  templeCard.appendChild(templeCaption);
-  
-	  templeGrid.appendChild(templeCard);
-	});
+  // Lazy load images
+  function lazyLoadImage(entry) {
+	  const img = entry.target;
+	  img.src = img.dataset.src;
+	  img.removeAttribute('data-src');
+	  imageObserver.unobserve(img);
   }
   
-
-
-const mainnav = document.querySelector('.navigation')
-const hambutton = document.querySelector('#menu');
-const h1 = document.querySelector('h1');
-
-
-// Add a click event listender to the hamburger button and use a callback function that toggles the list element's list of classes.
-hambutton.addEventListener('click', () => {
-	mainnav.classList.toggle('show');
-	hambutton.classList.toggle('show');
-    h1.classList.toggle('hide');
-
-});
-
-const currentyear = document.querySelector("#currentyear");
-const lastModifiedElement = document.getElementById('lastModified');
-
-currentyear.textContent = new Date().getFullYear();
-
-const date = new Date();
-const dateOptions = { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
-const usDateFormat = new Intl.DateTimeFormat('en-US', dateOptions).format(date);
-lastModifiedElement.textContent = usDateFormat;
-
-
-
-
-
+  const imageObserver = new IntersectionObserver((entries, observer) => {
+	  entries.forEach(entry => {
+		  if (entry.isIntersecting) {
+			  lazyLoadImage(entry);
+		  }
+	  });
+  }, { rootMargin: '100px' });
+  
+  // Filter temples
+  function filterTemples(filterType) {
+	  templeGrid.innerHTML = '';
+	  let filteredTemples = temples;
+  
+	  switch (filterType) {
+		  case 'old':
+			  filteredTemples = temples.filter(temple => new Date(temple.dedicated).getFullYear() < 1900);
+			  break;
+		  case 'new':
+			  filteredTemples = temples.filter(temple => new Date(temple.dedicated).getFullYear() > 2000);
+			  break;
+		  case 'large':
+			  filteredTemples = temples.filter(temple => temple.area > 90000);
+			  break;
+		  case 'small':
+			  filteredTemples = temples.filter(temple => temple.area < 10000);
+			  break;
+	  }
+  
+	  filteredTemples.forEach(temple => {
+		  const templeCard = document.createElement('div');
+		  templeCard.className = 'temple-card';
+		  templeCard.innerHTML = `
+			  <img data-src="${temple.imageUrl}" alt="${temple.templeName}" loading="lazy">
+			  <div class="temple-info">
+				  <h3>${temple.templeName}</h3>
+				  <p>Location: ${temple.location}</p>
+				  <p>Dedicated: ${new Date(temple.dedicated).toLocaleDateString()}</p>
+				  <p>Area: ${temple.area} sq ft</p>
+			  </div>
+		  `;
+		  templeGrid.appendChild(templeCard);
+  
+		  const img = templeCard.querySelector('img');
+		  imageObserver.observe(img);
+	  });
+  }
+  
+  // Event listeners for navigation
+  document.querySelectorAll('.navigation a').forEach(link => {
+	  link.addEventListener('click', (e) => {
+		  e.preventDefault();
+		  filterTemples(link.id);
+	  });
+  });
+  
+  // Initial load
+  filterTemples('home');
