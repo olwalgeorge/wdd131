@@ -90,6 +90,10 @@ main > h2 {
     display: block;
 }
 
+.navigation a:hover {
+    background-color: #616161;
+}
+
 footer {
     text-align: center;
     background-color: #424242;
