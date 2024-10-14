@@ -3,36 +3,46 @@ body {
     grid-template-rows: auto 1fr auto;
     height: 100vh;
     max-width: 100vw;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 10px;
-    background-color: #f2f2f2;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
     box-sizing: border-box;
 }
 
 header, footer {
     text-align: center;
-    background-color: #4b004b;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: #fff;
-    padding: 5px 0;
+    padding: 15px 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+header {
+    margin-bottom: 20px;
 }
 
 form {
     margin: 0 auto;
-    background-color: #d3d3d3;
-    padding: 10px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background: rgba(232, 228, 228, 0.848);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 fieldset {
     border: none;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 legend, label {
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
+    font-weight: 500;
+    color: #4a4a4a;
 }
 
 .rating {
@@ -47,42 +57,51 @@ legend, label {
 
 .rating label {
     cursor: pointer;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease, transform 0.2s ease;
+    font-size: 1.5rem;
 }
 
 .rating label:hover,
 .rating input[type="radio"]:checked + label {
-    color: gold; 
+    color: #ffd700;
+    transform: scale(1.2);
 }
 
 input[type="text"], input[type="date"], select, textarea, input[type="submit"] {
     width: 100%;
-    padding: 5px;
-    margin-bottom: 10px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
     box-sizing: border-box;
-    transition: border-color 0.3s ease, transform 0.3s ease; 
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.5);
 }
 
 input[type="text"]:focus, input[type="date"]:focus, select:focus, textarea:focus {
-    border-color: #807f7f; 
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.5);
+    background: rgba(255, 255, 255, 0.8);
 }
 
 textarea {
-    height: 50px;
+    height: 100px;
+    resize: vertical;
 }
 
 input[type="submit"] {
-    background-color: #555;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
     cursor: pointer;
     font-size: 1.2rem;
-    transition: background-color 0.3s ease;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
 }
 
 input[type="submit"]:hover {
-    background-color: #666; 
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .features {
@@ -91,34 +110,54 @@ input[type="submit"]:hover {
 }
 
 .features input[type="checkbox"] {
-    margin-right: 5px; 
+    margin-right: 10px;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #667eea;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.features input[type="checkbox"]:checked {
+    background-color: #667eea;
+    position: relative;
+}
+
+.features input[type="checkbox"]:checked::after {
+    content: '✓';
+    position: absolute;
+    color: white;
+    font-size: 14px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 footer {
-    margin-top: 10px;
+    margin-top: 20px;
 }
 
-/* Shake animation with red border */
 .shake {
-   animation: shake 0.5s ease-in-out both; 
-   border-color:red !important; 
-   outline-color:red !important;
+   animation: shake 0.5s ease-in-out both;
+   border-color: #ff4757 !important;
+   outline-color: #ff4757 !important;
 }
 
 @keyframes shake {
    0%, 100% { transform: translateX(0); }
-   20%, 60% { transform: translateX(-10px); }
-   40%, 80% { transform: translateX(10px); }
+   20%, 60% { transform: translateX(-5px); }
+   40%, 80% { transform: translateX(5px); }
 }
 
-/* Fill stars with red on error*/
 .rating.error label {
-   color:red; 
+   color: #ff4757;
 }
 
 @media (min-width: 768px) {
     body {
-        max-width: 500px; /* Centered layout for larger screens */
+        max-width: 600px;
         margin: 0 auto;
     }
- }
+}
