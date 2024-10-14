@@ -55,12 +55,19 @@ window.onload = function() {
         }
     });
     
+    // Set mobile rating
     const mobileRatings = document.querySelectorAll('.mobile-rating input');
     mobileRatings.forEach((rating, index) => {
         rating.value = 5 - index;
     });
+
+    // Set max date
+    const today = new Date();
+    const installationDate = document.getElementById('installationDate');
+    installationDate.max = today.toISOString().split('T')[0];
 };
 
+// Update lastModified
 const currentyear = document.querySelector("#currentyear");
 const lastModifiedElement = document.getElementById('lastModified');
 
@@ -70,3 +77,5 @@ const date = new Date();
 const dateOptions = { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
 const usDateFormat = new Intl.DateTimeFormat('en-US', dateOptions).format(date);
 lastModifiedElement.textContent = usDateFormat;
+
+
