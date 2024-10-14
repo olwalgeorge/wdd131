@@ -15,9 +15,9 @@ const products = [
       document.getElementById('rating').textContent = urlParams.get('rating');
       document.getElementById('installationDate').textContent = urlParams.get('installationDate');
       const features = urlParams.getAll('features');
-      document.getElementById('features').textContent = features.length ? features.join(', ') : 'None';
-      document.getElementById('writtenReview').textContent = urlParams.get('writtenReview');
-      document.getElementById('userName').textContent = urlParams.get('userName');
+      document.getElementById('features').textContent = features.length ? features.filter(f => f).join(', ') : 'None';
+      document.getElementById('writtenReview').textContent = urlParams.get('writtenReview') || 'None';
+      document.getElementById('userName').textContent = urlParams.get('userName') || 'None';
   
       // Update review count in localStorage
       let reviewCount = localStorage.getItem('reviewCount') || 0;
