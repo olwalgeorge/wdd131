@@ -23,7 +23,7 @@ const products = [
       let reviewCount = localStorage.getItem('reviewCount') || 0;
       reviewCount++;
       localStorage.setItem('reviewCount', reviewCount);
-      document.getElementById('reviewCount').textContent = `Total Reviews Submitted: ${reviewCount}`;
+      document.getElementById('reviewCount').innerHTML = `<b>Total Reviews Submitted:</b> ${reviewCount}`;
   };
 
 // update last modified
