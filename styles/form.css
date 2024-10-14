@@ -1,0 +1,104 @@
+body {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    height: 100vh;
+    max-width: 600px;
+    font-family: 'Roboto', sans-serif;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f2f2f2;
+    box-sizing: border-box;
+}
+
+header, footer {
+    text-align: center;
+    background-color: #4b004b;
+    color: #fff;
+    padding: 10px 0;
+}
+
+header {
+    margin-bottom: 20px;
+}
+
+form {
+    margin: 0 auto;
+    background-color: #d3d3d3;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+fieldset {
+    border: none;
+    margin-bottom: 15px;
+}
+
+legend, label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.rating {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.rating input[type="radio"] {
+    display: none;
+}
+
+.rating label {
+    font-size: 24px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.rating label:hover,
+.rating input[type="radio"]:checked + label {
+    color: gold;
+}
+
+input[type="text"], input[type="date"], select, textarea, input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus, input[type="date"]:focus, select:focus, textarea:focus {
+    border-color: #4CAF50;
+}
+
+textarea {
+    height: 100px;
+}
+
+input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+.features {
+    display: flex;
+    align-items: center;
+}
+
+.features input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+footer {
+    margin-top: 20px;
+}

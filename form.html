@@ -13,42 +13,77 @@
     <script defer src="scripts/form.js"></script>
 </head>
 <body>
-    <form method="get" action="review.html">
-        <label for="productName">Product Name:</label>
-        <select id="productName" name="productName" required>
+    <header>
+        <h1>Product Review</h1>
+    </header>    
+    
+    <form action="review.html" method="get" novalidate>     
+
+        <label for="productName">Product Name</label>
+        <select id="productName" name="productName" required aria-label="Select a product">
             <option value="" disabled selected>Select a Product ...</option>
+            <!-- Options will be populated by JavaScript -->
         </select>
 
-        <label for="rating">Overall Rating:</label>
-        <div id="rating">
-            <input type="radio" id="star1" name="rating" value="1" required><label for="star1">☆</label>
-            <input type="radio" id="star2" name="rating" value="2"><label for="star2">☆</label>
-            <input type="radio" id="star3" name="rating" value="3"><label for="star3">☆</label>
-            <input type="radio" id="star4" name="rating" value="4"><label for="star4">☆</label>
-            <input type="radio" id="star5" name="rating" value="5"><label for="star5">☆</label>
-        </div>
+        <fieldset>
+            <legend>Overall Rating</legend>
+            <div class="rating">
+                <input type="radio" id="star1" name="rating" value="1" required aria-label="1 star">
+                <label for="star1">&#9733;</label>
 
-        <label for="installationDate">Date of Installation:</label>
-        <input type="date" id="installationDate" name="installationDate" required>
+                <input type="radio" id="star2" name="rating" value="2" aria-label="2 stars">
+                <label for="star2">&#9733;&#9733;</label>
 
-        <label for="features">Useful Features:</label>
-        <div id="features">
-            <input type="checkbox" id="feature1" name="feature" value="Feature1"><label for="feature1">Feature 1</label>
-            <input type="checkbox" id="feature2" name="feature" value="Feature2"><label for="feature2">Feature 2</label>
+                <input type="radio" id="star3" name="rating" value="3" aria-label="3 stars">
+                <label for="star3">&#9733;&#9733;&#9733;</label>
+
+                <input type="radio" id="star4" name="rating" value="4" aria-label="4 stars">
+                <label for="star4">&#9733;&#9733;&#9733;&#9733;</label>
+
+                <input type="radio" id="star5" name="rating" value="5" aria-label="5 stars">
+                <label for="star5">&#9733;&#9733;&#9733;&#9733;&#9733;</label>
+            </div>
+        </fieldset>
+
+        <label for="installationDate">Date of Installation</label>
+        <input type="date" id="installationDate" name="installationDate" required aria-label="Enter the date of installation">
+
+        <fieldset>
+            <legend>Which features did you find useful in the product? (Check all that apply)</legend>
             
-        </div>
+            <div class="features">
+                <input type="checkbox" id="durability" name="features" value="Durability" aria-label="Durability">
+                <label for="durability">Durability</label>
+            </div>
+            
+            <div class="features">
+                <input type="checkbox" id="easeOfUse" name="features" value="Ease of Use" aria-label="Ease of Use">
+                <label for="easeOfUse">Ease of Use</label>
+            </div>
+        
+            <div class="features">
+                <input type="checkbox" id="performance" name="features" value="Performance" aria-label="Performance">
+                <label for="performance">Performance</label>
+            </div>
+        
+            <div class="features">
+                <input type="checkbox" id="design" name="features" value="Design" aria-label="Design">
+                <label for="design">Design</label>
+            </div>
+        </fieldset>
 
-        <label for="review">Written Review:</label>
-        <textarea id="review" name="review"></textarea>
+        <label for="writtenReview">Written Review (Optional)</label>
+        <textarea id="writtenReview" name="writtenReview" aria-label="Enter your written review"></textarea>
 
-        <label for="userName">User Name:</label>
-        <input type="text" id="userName" name="userName">
-
-        <input type="submit" value="Submit Review">
+        <label for="userName">Your Name (Optional)</label>
+        <input type="text" id="userName" name="userName" pattern="[a-zA-Z\s]+" title="Only letters and spaces allowed" aria-label="Enter your name">
+        <input type="submit" value="Post Review" aria-label="Submit your review">
     </form>
+
     <footer class="footer-content">
         <p>&copy;<span id="currentyear"></span> &#127803; George Olwal, Kenya &#127803;</p>
         <p>Last Modification: <span id="lastModified"></span></p>
     </footer>
-    </body>
+</body>
 </html>
+
