@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Product Review Form - George Olwal">
+    <meta name="author" content="George Olwal">  
+    <title>Product Review Form - WDD 131 -Dynamic Web Fundamentals - George Olwal</title>  
+    <link rel="stylesheet" href="styles/form.css">        
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap" rel="stylesheet">
+    <script defer src="scripts/form.js"></script>
+</head>
+<body>
+    <form method="get" action="review.html">
+        <label for="productName">Product Name:</label>
+        <select id="productName" name="productName" required>
+            <option value="" disabled selected>Select a Product ...</option>
+        </select>
+
+        <label for="rating">Overall Rating:</label>
+        <div id="rating">
+            <input type="radio" id="star1" name="rating" value="1" required><label for="star1">☆</label>
+            <input type="radio" id="star2" name="rating" value="2"><label for="star2">☆</label>
+            <input type="radio" id="star3" name="rating" value="3"><label for="star3">☆</label>
+            <input type="radio" id="star4" name="rating" value="4"><label for="star4">☆</label>
+            <input type="radio" id="star5" name="rating" value="5"><label for="star5">☆</label>
+        </div>
+
+        <label for="installationDate">Date of Installation:</label>
+        <input type="date" id="installationDate" name="installationDate" required>
+
+        <label for="features">Useful Features:</label>
+        <div id="features">
+            <input type="checkbox" id="feature1" name="feature" value="Feature1"><label for="feature1">Feature 1</label>
+            <input type="checkbox" id="feature2" name="feature" value="Feature2"><label for="feature2">Feature 2</label>
+            
+        </div>
+
+        <label for="review">Written Review:</label>
+        <textarea id="review" name="review"></textarea>
+
+        <label for="userName">User Name:</label>
+        <input type="text" id="userName" name="userName">
+
+        <input type="submit" value="Submit Review">
+    </form>
+    <footer class="footer-content">
+        <p>&copy;<span id="currentyear"></span> &#127803; George Olwal, Kenya &#127803;</p>
+        <p>Last Modification: <span id="lastModified"></span></p>
+    </footer>
+    </body>
+</html>
