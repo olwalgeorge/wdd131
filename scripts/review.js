@@ -14,7 +14,8 @@ const products = [
       document.getElementById('productName').textContent = product ? product.name : 'Unknown Product';
       document.getElementById('rating').textContent = urlParams.get('rating');
       document.getElementById('installationDate').textContent = urlParams.get('installationDate');
-      document.getElementById('features').textContent = urlParams.getAll('features').join(', ');
+      const features = urlParams.getAll('features');
+      document.getElementById('features').textContent = features.length ? features.join(', ') : 'None';
       document.getElementById('writtenReview').textContent = urlParams.get('writtenReview');
       document.getElementById('userName').textContent = urlParams.get('userName');
   
