@@ -5,48 +5,49 @@
 form {
     width: 100%;
     margin: 0 auto;
-    background: rgba(232, 228, 228, 0.848);
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
-    backdrop-filter: blur(4px);
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     box-sizing: border-box;
 }
 
 header, footer {
     text-align: center;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
     color: #fff;    
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    padding: 5px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+    padding: 10px;
 }
 
 header {
-    margin-bottom: 10px;
-    font-size: 1rem;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    font-weight: 600;
 }
 
 fieldset {
     border: none;   
-    padding-top: 5px;
+    padding-top: 10px;
 }
 
 legend {
     display: block;    
-    font-weight: 500;
-    color: #4a4a4a;
+    font-weight: 600;
+    color: #333;
+   
 }
 
 label {
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
     font-weight: 500;
-    color: #4a4a4a;
+    color: #444;
 }
 
-/* Desktop rating system */
 .desktop-rating {
     display: flex;
     justify-content: space-between;
@@ -60,16 +61,15 @@ label {
 .desktop-rating label {
     cursor: pointer;
     transition: color 0.3s ease, transform 0.2s ease;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
 }
 
 .desktop-rating label:hover,
 .desktop-rating input[type="radio"]:checked + label {
     color: #ffd700;
-    transform: scale(1.2);
+    transform: scale(1.3);
 }
 
-/* Mobile rating system */
 .mobile-rating {
     display: none;
     direction: rtl;
@@ -83,7 +83,7 @@ label {
 .mobile-rating label {
     display: inline-block;
     padding: 5px;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     color: #ddd;
     cursor: pointer;
 }
@@ -96,28 +96,29 @@ label {
 
 input[type="text"], input[type="date"], select, textarea, input[type="submit"] {
     width: 100%;
-    padding: 12px;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 14px;
+    margin-bottom: 25px;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
     box-sizing: border-box;
     transition: all 0.3s ease;
-    background: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.8);
+    font-size: 1rem;
 }
 
 input[type="text"]:focus, input[type="date"]:focus, select:focus, textarea:focus {
     outline: none;
-    box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.5);
-    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 0 3px rgba(37, 117, 252, 0.2);
+    background: #fff;
 }
 
 textarea {
-    height: 100px;
+    height: 120px;
     resize: vertical;
 }
 
 input[type="submit"] {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
     color: white;
     cursor: pointer;
     font-size: 1.2rem;
@@ -127,22 +128,22 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 .features {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 5px;
+    gap: 10px;
 }
 
 .features label {
     display: flex;
     align-items: center;
-    margin-right: 10px;
-    margin-top: 5px;
+    margin-right: 15px;
+    margin-top: 8px;
 }
 
 .features label:first-child {
@@ -154,14 +155,14 @@ input[type="submit"]:hover {
     appearance: none;
     width: 20px;
     height: 20px;
-    border: 2px solid #667eea;
-    border-radius: 4px;
+    border: 2px solid #2575fc;
+    border-radius: 6px;
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
 .features input[type="checkbox"]:checked {
-    background-color: #667eea;
+    background-color: #2575fc;
     position: relative;
 }
 
@@ -169,15 +170,15 @@ input[type="submit"]:hover {
     content: '✓';
     position: absolute;
     color: white;
-    font-size: 14px;
+    font-size: 16px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
 footer {
-    margin-top: 10px;
-    font-size: 0.75rem;
+    margin-top: 20px;
+    font-size: 0.8rem;
 }
 
 .shake {
@@ -198,12 +199,12 @@ footer {
 
 @media (min-width: 768px) {
     .content {
-        max-width: 600px;
+        max-width: 650px;
         margin: 0 auto;
     }
     form {
         width: 100%;
-        max-width: 600px;
+        max-width: 650px;
     }
 }
 
@@ -218,13 +219,10 @@ footer {
 }
 
 @media (max-width: 320px) {
-    /* .rating label {
-        font-size: 0.75rem;
-    } */
     .mobile-rating label {
         display: inline-block;
         padding: 5px;
-        font-size: 1.5rem;
+        font-size: 1.6rem;
         color: #ddd;
         cursor: pointer;
         transition: transform 0.2s ease; 
@@ -236,5 +234,4 @@ footer {
         color: #ffd700;
         transform: scale(1.2);
     }
-
 }
