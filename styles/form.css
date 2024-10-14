@@ -46,26 +46,52 @@ label {
     color: #4a4a4a;
 }
 
-.rating {
+/* Desktop rating system */
+.desktop-rating {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.rating input[type="radio"] {
+.desktop-rating input[type="radio"] {
     display: none;
 }
 
-.rating label {
+.desktop-rating label {
     cursor: pointer;
     transition: color 0.3s ease, transform 0.2s ease;
     font-size: 1.5rem;
 }
 
-.rating label:hover,
-.rating input[type="radio"]:checked + label {
+.desktop-rating label:hover,
+.desktop-rating input[type="radio"]:checked + label {
     color: #ffd700;
     transform: scale(1.2);
+}
+
+/* Mobile rating system */
+.mobile-rating {
+    display: none;
+    direction: rtl;
+    unicode-bidi: bidi-override;
+}
+
+.mobile-rating input[type="radio"] {
+    display: none;
+}
+
+.mobile-rating label {
+    display: inline-block;
+    padding: 5px;
+    font-size: 1.5rem;
+    color: #ddd;
+    cursor: pointer;
+}
+
+.mobile-rating label:hover,
+.mobile-rating label:hover ~ label,
+.mobile-rating input[type="radio"]:checked ~ label {
+    color: #ffd700;
 }
 
 input[type="text"], input[type="date"], select, textarea, input[type="submit"] {
@@ -181,9 +207,34 @@ footer {
     }
 }
 
-@media (max-width: 320px) {
-    .rating label {
-        font-size: 0.75rem;
+@media (max-width: 767px) {
+    .desktop-rating {
+        display: none;
     }
     
+    .mobile-rating {
+        display: inline-block;
+    }
+}
+
+@media (max-width: 320px) {
+    /* .rating label {
+        font-size: 0.75rem;
+    } */
+    .mobile-rating label {
+        display: inline-block;
+        padding: 5px;
+        font-size: 1.5rem;
+        color: #ddd;
+        cursor: pointer;
+        transition: transform 0.2s ease; 
+    }
+
+    .mobile-rating label:hover,
+    .mobile-rating label:hover ~ label,
+    .mobile-rating input[type='radio']:checked ~ label {
+        color: #ffd700;
+        transform: scale(1.2);
+    }
+
 }

@@ -27,7 +27,8 @@
             </select>
             <fieldset>
                 <legend>Overall Rating</legend>
-                <div class="rating">
+                <!-- Desktop rating system -->
+                <div class="rating desktop-rating">
                     <input type="radio" id="star1" name="rating" value="1" required aria-label="1 star">
                     <label for="star1">&#9733;</label>
             
@@ -42,6 +43,24 @@
             
                     <input type="radio" id="star5" name="rating" value="5" aria-label="5 stars">
                     <label for="star5">&#9733;&#9733;&#9733;&#9733;&#9733;</label>
+                </div>
+                
+                <!-- Mobile rating system -->
+                <div class="rating mobile-rating">
+                    <input type="radio" id="mstar1" name="rating" value="1" required>
+                    <label for="mstar1">&#9733;</label>
+                    
+                    <input type="radio" id="mstar2" name="rating" value="2">
+                    <label for="mstar2">&#9733;</label>
+                    
+                    <input type="radio" id="mstar3" name="rating" value="3">
+                    <label for="mstar3">&#9733;</label>
+                    
+                    <input type="radio" id="mstar4" name="rating" value="4">
+                    <label for="mstar4">&#9733;</label>
+                    
+                    <input type="radio" id="mstar5" name="rating" value="5">
+                    <label for="mstar5">&#9733;</label>
                 </div>
             </fieldset>
 
@@ -89,4 +108,3 @@
     </div>
 </body>
 </html>
-

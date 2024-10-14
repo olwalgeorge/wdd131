@@ -4,55 +4,62 @@ const products = [
     { id:"fs-1987", name:"time circuits", averagerating :3.5 },
     { id:"ac-2000", name:"low voltage reactor", averagerating :3.9 },
     { id:"jj-1969", name:"warp equalizer", averagerating :5.0 }
- ];
- 
- window.onload = function() {
+];
+
+window.onload = function() {
     const productSelect = document.getElementById('productName');
     
     products.forEach(product => {
         const option = document.createElement('option');
-        option.value = product.id; // Set the option value
+        option.value = product.id;
         option.textContent = `${product.name} (Average Rating:${product.averagerating})`;
-        productSelect.appendChild(option); // Add the option to the select element
+        productSelect.appendChild(option);
     });
     
     const form = document.querySelector('form');
     
     form.addEventListener('submit', function(event) {
         let isValid = true;
- 
+
         const productName = document.getElementById('productName');
         const rating = document.querySelector('input[name="rating"]:checked');
         const installationDate = document.getElementById('installationDate');
         
         if (productName.value === "") {
             productName.classList.add('shake');
-            isValid = false; // Mark as invalid
+            isValid = false;
             productName.focus();
         }
         
         if (!rating) {
-            const ratingDiv = document.querySelector('.rating');
-            ratingDiv.classList.add('shake', 'error'); // Add error class
-            isValid = false; // Mark as invalid
+            const ratingDiv = window.innerWidth <= 767 
+                ? document.querySelector('.mobile-rating')
+                : document.querySelector('.desktop-rating');
+            ratingDiv.classList.add('shake', 'error');
+            isValid = false;
         }
         
         if (installationDate.value === "") {
             installationDate.classList.add('shake');
-            isValid = false; // Mark as invalid
+            isValid = false;
             installationDate.focus();
         }
- 
+
         if (!isValid) {
-            event.preventDefault(); // Prevent form submission
-            setTimeout(() => { // Remove shake class after animation
+            event.preventDefault();
+            setTimeout(() => {
                 productName.classList.remove('shake');
-                document.querySelector('.rating').classList.remove('shake', 'error'); // Remove error class
+                document.querySelector('.rating.shake')?.classList.remove('shake', 'error');
                 installationDate.classList.remove('shake');
-            },500);
+            }, 500);
         }
     });
- };
+    
+    const mobileRatings = document.querySelectorAll('.mobile-rating input');
+    mobileRatings.forEach((rating, index) => {
+        rating.value = 5 - index;
+    });
+};
 
 const currentyear = document.querySelector("#currentyear");
 const lastModifiedElement = document.getElementById('lastModified');
