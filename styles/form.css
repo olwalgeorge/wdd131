@@ -1,12 +1,16 @@
-body {
-    display: grid;
-    grid-template-rows: auto 1fr auto;
-    height: 100vh;
-    max-width: 100vw;
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    padding: 10px;
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+.content {
+    box-sizing: border-box;
+}
+
+form {
+    width: 100%;
+    margin: 0 auto;
+    background: rgba(232, 228, 228, 0.848);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
     box-sizing: border-box;
 }
 
@@ -16,22 +20,12 @@ header, footer {
     color: #fff;    
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-   
+    padding: 5px;
 }
 
 header {
     margin-bottom: 10px;
     font-size: 1rem;
-}
-
-form {
-    margin: 0 auto;
-    background: rgba(232, 228, 228, 0.848);
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
-    backdrop-filter: blur(4px);
-    border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 fieldset {
@@ -111,7 +105,6 @@ input[type="submit"]:hover {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-
 .features {
     display: flex;
     flex-wrap: wrap;
@@ -178,8 +171,19 @@ footer {
 }
 
 @media (min-width: 768px) {
-    body {
+    .content {
         max-width: 600px;
         margin: 0 auto;
     }
+    form {
+        width: 100%;
+        max-width: 600px;
+    }
+}
+
+@media (max-width: 320px) {
+    .rating label {
+        font-size: 0.75rem;
+    }
+    
 }
