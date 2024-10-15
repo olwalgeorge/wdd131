@@ -12,7 +12,7 @@ window.onload = function() {
     products.forEach(product => {
         const option = document.createElement('option');
         option.value = product.id;
-        option.textContent = `${product.name} (Average Rating:${product.averagerating})`;
+        option.textContent = `${product.name} (Avg Rating: ${product.averagerating} ★)`;
         productSelect.appendChild(option);
     });
     

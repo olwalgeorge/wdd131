@@ -1,16 +1,17 @@
 :root {
-    --primary-color: #1274e3;
-    --secondary-color: #f5f7fa;
-    --text-color: #333;
-    --border-radius: 12px;
-    --box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-    --box-shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.2);
-    --primary-gradient: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-    --secondary-gradient: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-    --inactive-star-color: rgba(84, 83, 83, 0.947);
-    --active-star-color: #ffd700;
-    --faded-color: #bbb;
-    --warning: #ff4757;
+    --primary-color: hsl(212, 90%, 50%);
+    --secondary-color: hsl(0, 0%, 98%);
+    --text-color: hsl(0, 0%, 20%);
+    --border-radius: 0.5rem;
+    --box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    --box-shadow-hover: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+    --primary-gradient: linear-gradient(135deg, hsl(265, 100%, 50%) 0%, hsl(220, 100%, 50%) 100%);
+    --secondary-gradient: linear-gradient(135deg, hsl(0, 0%, 98%) 0%, hsl(0, 0%, 85%) 100%);
+    --inactive-star-color: hsla(0, 0%, 0%, 0.7);
+    --active-star-color: hsl(50, 100%, 50%);
+    --faded-color: hsl(0, 0%, 70%);
+    --warning: hsl(0, 100%, 50%);
+    --border-color: 1px solid hsl(0, 0%, 85%);
 }
 
 .content {
@@ -19,14 +20,14 @@
     margin: 0 auto;
 }
 
-body {    
+body {
     display: grid;
     grid-template-rows: auto 1fr auto;
     height: 100vh;
     max-width: 100vw;
     font-family: 'Roboto', sans-serif;
     margin: 0;
-    padding: 10px;
+    padding: 1rem;
     background-color: var(--secondary-color);
     box-sizing: border-box;
 }
@@ -34,42 +35,41 @@ body {
 header, footer {
     text-align: center;
     background: var(--primary-gradient);
-    color: var(--secondary-color);    
+    color: var(--secondary-color);
     border-radius: var(--border-radius);
-    padding: 5px;
+    padding: 0.5rem;
     box-shadow: var(--box-shadow);
 }
 
 header {
-    margin-bottom: 10px;
+    margin-bottom: 1rem;
     font-size: 1rem;
 }
 
 form {
     margin: 0 auto;
     background: var(--secondary-color);
-    padding: 20px;
+    padding: 1rem;
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
     backdrop-filter: blur(4px);
-    border: 1px solid rgba(var(--secondary-color-rgb), 0.18);
+    border: var(--border-color)
 }
 
 fieldset {
-    border: none;   
-    padding-top: 5px;
+    border: none;
+    padding-top: 0.15rem;
 }
 
 legend {
-    display: block;    
+    display: block;
     font-weight: 500;
-    color: var(--primary-color);
 }
 
 label {
     display: block;
-    margin-bottom: 5px;
-    font-weight: 500;    
+    margin-bottom: 0.15rem;
+    font-weight: 500;
 }
 
 .rating {
@@ -84,7 +84,7 @@ label {
 
 .rating label {
     cursor: pointer;
-    color: #ddd;
+    color: var(--inactive-star-color);
     transition: color 0.3s ease, transform 0.2s ease;
     font-size: 1.5rem;
 }
@@ -97,10 +97,10 @@ label {
 
 input[type="text"], input[type="date"], select, textarea {
     width: 100%;
-    padding: 12px;
-    margin-bottom: 20px;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
     border-radius: var(--border-radius);
-    border: 1px solid var(--secondary-color);
+    border: var(--border-color);
     box-sizing: border-box;
     transition: all 0.3s ease;
     font-size: 1rem;
@@ -111,15 +111,15 @@ input[type="text"]::placeholder, textarea::placeholder {
 }
 
 textarea {
-    height: 100px;
+    height: 10rem;
     resize: vertical;
 }
 
 input[type="submit"] {
     width: 100%;
-    padding: 12px;
+    padding: 0.5rem;
     background-image: var(--primary-gradient);
-    color: var(--primary-color);
+    color: var(--secondary-color);
     border: none;
     border-radius: var(--border-radius);
     cursor: pointer;
@@ -128,24 +128,23 @@ input[type="submit"] {
     transition: all 0.3s ease;
 }
 
-
 input[type="submit"]:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, var(--box-shadow-hover));
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
 }
 
 .features {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 5px;
+    gap: 0.25rem;
 }
 
 .features label {
     display: flex;
     align-items: center;
-    margin-right: 10px;
-    margin-top: 5px;
+    margin-right: 0.5rem;
+    margin-top: 0.5rem;
 }
 
 .features label:first-child {
@@ -153,12 +152,12 @@ input[type="submit"]:hover {
 }
 
 .features input[type="checkbox"] {
-    margin-right: 5px;
+    margin-right: 0.5rem;
     appearance: none;
-    width: 20px;
-    height: 20px;
+    width: 1rem;
+    height: 1rem;
     border: 2px solid var(--primary-color);
-    border-radius: 4px;
+    border-radius: 0.25rem;
     cursor: pointer;
     transition: all 0.3s ease;
 }
@@ -171,32 +170,32 @@ input[type="submit"]:hover {
 .features input[type="checkbox"]:checked::after {
     content: '✓';
     position: absolute;
-    color: var(--primary-color);
-    font-size: 14px;
+    color: var(--secondary-color);
+    font-size: 0.75rem;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
 footer {
-    margin-top: 10px;
+    margin-top: 0.5rem;
     font-size: 0.75rem;
 }
 
 .shake {
-   animation: shake 0.5s ease-in-out both;
-   border-color: var(--warning) !important;
-   outline-color: var(--warning) !important;
+    animation: shake 0.5s ease-in-out both;
+    border-color: var(--warning) !important;
+    outline-color: var(--warning) !important;
 }
 
 @keyframes shake {
-   0%, 100% { transform: translateX(0); }
-   20%, 60% { transform: translateX(-5px); }
-   40%, 80% { transform: translateX(5px); }
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-0.25rem); }
+    40%, 80% { transform: translateX(0.25rem); }
 }
 
 .rating.error label {
-   color: var(--warning) !important;
+    color: var(--warning) !important;
 }
 
 @media screen and (max-width: 768px) {
