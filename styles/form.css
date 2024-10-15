@@ -18,9 +18,10 @@ body {
 
 header, footer {
     text-align: center;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
     color: #fff;    
     border-radius: 10px;
+    padding: 5px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
@@ -31,7 +32,7 @@ header {
 
 form {
     margin: 0 auto;
-    background: rgba(232, 228, 228, 0.848);
+    background: rgba(240, 240, 240, 0.9);
     padding: 20px;
     border-radius: 15px;
     box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
