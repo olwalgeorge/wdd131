@@ -32,10 +32,7 @@ window.onload = function() {
         }
         
         if (!rating) {
-            const ratingDiv = window.innerWidth <= 767 
-                ? document.querySelector('.mobile-rating')
-                : document.querySelector('.desktop-rating');
-            ratingDiv.classList.add('shake', 'error');
+            document.querySelector('.rating').classList.add('shake', 'error');
             isValid = false;
         }
         
@@ -49,33 +46,53 @@ window.onload = function() {
             event.preventDefault();
             setTimeout(() => {
                 productName.classList.remove('shake');
-                document.querySelector('.rating.shake')?.classList.remove('shake', 'error');
+                document.querySelector('.rating').classList.remove('shake', 'error');
                 installationDate.classList.remove('shake');
             }, 500);
         }
-    });
-    
-    // Set mobile rating
-    const mobileRatings = document.querySelectorAll('.mobile-rating input');
-    mobileRatings.forEach((rating, index) => {
-        rating.value = 5 - index;
     });
 
     // Set max date
     const today = new Date();
     const installationDate = document.getElementById('installationDate');
     installationDate.max = today.toISOString().split('T')[0];
+
+    // Update lastModified
+    const currentyear = document.querySelector("#currentyear");
+    const lastModifiedElement = document.getElementById('lastModified');
+
+    currentyear.textContent = new Date().getFullYear();
+
+    const date = new Date();
+    const dateOptions = { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
+    const usDateFormat = new Intl.DateTimeFormat('en-US', dateOptions).format(date);
+    lastModifiedElement.textContent = usDateFormat;
+
+    // New function for mobile star rating
+    function initMobileStarRating() {
+        if (window.innerWidth <= 768) {
+            const ratingInputs = document.querySelectorAll('.rating input[type="radio"]');
+            const ratingLabels = document.querySelectorAll('.rating label');
+
+            ratingInputs.forEach((input, index) => {
+                input.value = 5 - index;
+                input.id = `star${5 - index}`;
+            });
+
+            ratingLabels.forEach((label, index) => {
+                label.setAttribute('for', `star${5 - index}`);
+                label.textContent = '';
+            });
+
+            document.querySelector('.rating').addEventListener('change', function(e) {
+                if (e.target.type === 'radio') {
+                    console.log('Selected rating:', e.target.value);
+                }
+            });
+        }
+    }
+
+    // Call the function on load and resize
+    initMobileStarRating();
+    window.addEventListener('resize', initMobileStarRating);
 };
-
-// Update lastModified
-const currentyear = document.querySelector("#currentyear");
-const lastModifiedElement = document.getElementById('lastModified');
-
-currentyear.textContent = new Date().getFullYear();
-
-const date = new Date();
-const dateOptions = { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
-const usDateFormat = new Intl.DateTimeFormat('en-US', dateOptions).format(date);
-lastModifiedElement.textContent = usDateFormat;
-
-
