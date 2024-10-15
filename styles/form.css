@@ -154,14 +154,14 @@ input[type="submit"]:hover {
     appearance: none;
     width: 20px;
     height: 20px;
-    border: 2px solid #667eea;
+    border: 2px solid var(--primary-color);
     border-radius: 4px;
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
 .features input[type="checkbox"]:checked {
-    background-color: #667eea;
+    background-color: var(--primary-color);
     position: relative;
 }
 
