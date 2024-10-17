@@ -178,14 +178,18 @@ input[type="submit"]:hover {
 }
 
 footer {
-    margin-top: 0.5rem;
-    font-size: 0.75rem;
+    margin-top: 0.5rem;    
 }
 
 .shake {
     animation: shake 0.5s ease-in-out both;
     border-color: var(--warning) !important;
     outline-color: var(--warning) !important;
+}
+
+footer p {
+    display: block;
+    margin: 0;
 }
 
 @keyframes shake {
