@@ -1,6 +1,6 @@
 :root {
-    --primary-color: hsl(212, 90%, 50%);
-    --secondary-color: hsl(0, 0%, 95%); /* changed from 98% to 95% to improve contrast */
+    --primary-color: hsl(212, 90%, 45%);
+    --secondary-color: hsl(0, 0%, 92%); 
     --text-color: hsl(0, 0%, 20%);
     --border-radius: 0.5rem;
     --box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
@@ -73,7 +73,7 @@ h2 {
 
 h3 {
     font-size: 1.5rem;
-    font-weight: 300;
+    font-weight: 200;
 }
 
 p {
