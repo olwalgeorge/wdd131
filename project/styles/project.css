@@ -141,8 +141,15 @@ ul, ol {
     border: 1px solid var(--border-color);
 }
 .text-color { background-color: var(--text-color); }
-.warning-color { background-color: var(--warning); }
-.faded-color { background-color: var(--faded-color); }
+.warning-color { 
+    background-color: var(--warning); 
+    color: var(--secondary-color);
+}
+
+.faded-color { 
+    background-color: var(--faded-color); 
+    color: var(--text-color);
+}
 
 strong {
     color: var(--primary-color);
