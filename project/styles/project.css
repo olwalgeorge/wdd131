@@ -22,30 +22,29 @@
 }
 
 body {
-
     max-width: 900px;
     width: 100%;
+    min-height: 100vh;
     margin: 0 auto;
-    font-family: 'roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Roboto', sans-serif;
     line-height: 1.6;
     color: var(--text-color);
     background-color: var(--background-color);
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
 }
 
 header, footer {
-    background: var(--primary-gradient);
-    color: var(--secondary-color);
     padding: 1.5rem;
     text-align: center;
+    background: var(--primary-gradient);
+    color: var(--secondary-color);
     box-shadow: var(--box-shadow);
 }
 
 header h1 {
-    font-size: 2.5rem;
     margin: 0;
+    font-size: 2.5rem;
     color: var(--secondary-color);
 }
 
@@ -55,21 +54,22 @@ header h1 {
 }
 
 main {
-    
     padding: 2rem;
     flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
 }
 
 h1, h2, h3 {
+    margin-bottom: 1rem;
     font-family: 'Roboto', sans-serif;
     color: var(--primary-color);
-    margin-bottom: 1rem;
 }
 
 h2 {
+    padding-bottom: 0.5rem;
     font-size: 2rem;
     border-bottom: 2px solid var(--primary-color);
-    padding-bottom: 0.5rem;
 }
 
 h3 {
@@ -83,28 +83,31 @@ p {
 
 section {
     margin-bottom: 2.5rem;
-    background-color: var(--secondary-color);
     padding: 1.5rem;
+    background-color: var(--secondary-color);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
 }
 
+section:last-child {
+    margin-bottom: 0;
+}
+
 ul, ol {
-    margin-left: 2rem;
-    margin-bottom: 1rem;
+    margin: 0 0 1rem 2rem;
 }
 
 .color-schema {
-    background-color: var(--secondary-color);
     padding: 1.5rem;
+    background-color: var(--secondary-color);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
 }
 
 .color-samples {
     display: flex;
-    justify-content: space-between;
     flex-wrap: wrap;
+    justify-content: space-between;
     gap: 1rem;
     margin-bottom: 1.5rem;
 }
@@ -119,7 +122,10 @@ ul, ol {
     font-weight: bold;
     border-radius: var(--border-radius);
     transition: transform 0.3s ease;
+}
 
+.color-sample:hover {
+    transform: scale(1.05);
 }
 
 #secondary-color {
@@ -128,31 +134,15 @@ ul, ol {
     text-align: center;
 }
 
-.color-sample:hover {
-    transform: scale(1.05);
-}
-
-.primary-color {
-    background-color: var(--primary-color);
-}
-
+.primary-color { background-color: var(--primary-color); }
 .secondary-color {
     background-color: var(--secondary-color);
     color: var(--text-color);
     border: 1px solid var(--border-color);
 }
-
-.text-color {
-    background-color: var(--text-color);
-}
-
-.warning-color {
-    background-color: var(--warning);
-}
-
-.faded-color {
-    background-color: var(--faded-color);
-}
+.text-color { background-color: var(--text-color); }
+.warning-color { background-color: var(--warning); }
+.faded-color { background-color: var(--faded-color); }
 
 strong {
     color: var(--primary-color);
@@ -162,50 +152,25 @@ strong {
 main img {
     width: 100%;
     height: auto;
-    display: block;  
+    display: block;
+    margin-bottom: 2rem;
 }
 
 footer p {
-    display: block;
     margin: 0;
 }
 
 @media (max-width: 768px) {
-    header h1 {
-        font-size: 2rem;
-    }
-
-    main {
-        padding: 1.5rem;
-    }
-
-    h2 {
-        font-size: 1.75rem;
-    }
-
-    h3 {
-        font-size: 1.25rem;
-    }
-
-    .color-sample {
-        width: calc(33.33% - 0.67rem);
-    }
+    header h1 { font-size: 2rem; }
+    main { padding: 1.5rem; }
+    h2 { font-size: 1.75rem; }
+    h3 { font-size: 1.25rem; }
+    .color-sample { width: calc(33.33% - 0.67rem); }
 }
 
 @media (max-width: 480px) {
-    header h1 {
-        font-size: 1.75rem;
-    }
-
-    main {
-        padding: 1rem;
-    }
-
-    h2 {
-        font-size: 1.5rem;
-    }
-
-    .color-sample {
-        width: calc(50% - 0.5rem);
-    }
+    header h1 { font-size: 1.75rem; }
+    main { padding: 1rem; }
+    h2 { font-size: 1.5rem; }
+    .color-sample { width: calc(50% - 0.5rem); }
 }
