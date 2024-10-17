@@ -137,13 +137,13 @@ ul, ol {
 .primary-color { background-color: var(--primary-color); }
 .secondary-color {
     background-color: var(--secondary-color);
-    color: var(--text-color);
+    color: black;
     border: 1px solid var(--border-color);
 }
 .text-color { background-color: var(--text-color); }
 .warning-color { 
     background-color: var(--warning); 
-    color: var(--primary-color);
+    color: black;
 }
 
 .faded-color { 
