@@ -9,9 +9,10 @@
     --hero-image-filter: brightness(0.5);
     --hero-bg: #4CAF50;
     --hero-btn-bg: #f0f0f0;
-    --card-bg: rgba(144, 238, 144, 0.3);
+    --card-bg: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
     --card-border: rgba(76, 175, 80, 0.3);
-    --card-text-color: #8B0A1A;
+    --card-text-color: #4B0082;
     --features-bg: #f8f8f8;
     --footer-bg: #333;
     --footer-color: white;
