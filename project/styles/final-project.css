@@ -424,20 +424,36 @@ nav ul li a:hover::after {
     transform: scale(1.2);
     animation: hueChange 2s infinite;
   }
+
   .new-feature {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px; /* Adjust spacing as needed */
+    padding: 20px;
+}
+
+.new-feature-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Ensures space between h2/p and img */
+    align-items: center;
     text-align: center;
-    gap: var(--spacing-medium);
-    padding: var(--spacing-large);
-    align-items: end;
-  }
+    background-color: #f9f9f9; /* Optional: Add background color for contrast */
+    border-radius: 8px; /* Optional: Rounded corners for modern look */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Subtle shadow for depth */
+    padding: 20px;
+    height: 300px; /* Set a fixed height to keep uniformity */
+    overflow: hidden; /* Prevent content overflow */
+}
 
-  
-  
-
-
-
+.new-feature-item img {
+    margin-bottom: 15px;
+    width: 100%;
+    height: auto;
+    max-height: 150px; /* Ensure images are uniform in size */
+    object-fit: cover; /* Ensures images maintain aspect ratio */
+    margin-top: auto; /* Push image to the bottom */
+}
 @media (max-width: 768px) {
     .feature-1 {
         grid-template-columns: 1fr;
@@ -606,4 +622,5 @@ nav ul li a:hover::after {
         max-width: 100%;
     }
 }
+
 
