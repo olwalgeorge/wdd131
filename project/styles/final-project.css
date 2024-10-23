@@ -454,6 +454,11 @@ nav ul li a:hover::after {
     margin-top: auto; /* Push image to the bottom */
 }
 
+.new-feature-item h3 .new-feature-item p{
+    color: var(--body-bg);
+}
+
+
 footer {
     background-color: var(--footer-bg);
     color: var(--footer-color);

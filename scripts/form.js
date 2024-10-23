@@ -24,20 +24,23 @@ window.onload = function() {
         const productName = document.getElementById('productName');
         const rating = document.querySelector('input[name="rating"]:checked');
         const installationDate = document.getElementById('installationDate');
-        
+
+        // Clear previous error messages
+        clearErrorMessages();
+
         if (productName.value === "") {
-            productName.classList.add('shake');
+            showError(productName, "Please select a product.");
             isValid = false;
             productName.focus();
         }
         
         if (!rating) {
-            document.querySelector('.rating').classList.add('shake', 'error');
+            showError(document.querySelector('.rating'), "Please select a rating.");
             isValid = false;
         }
         
         if (installationDate.value === "") {
-            installationDate.classList.add('shake');
+            showError(installationDate, "Please enter the installation date.");
             isValid = false;
             installationDate.focus();
         }
@@ -45,12 +48,34 @@ window.onload = function() {
         if (!isValid) {
             event.preventDefault();
             setTimeout(() => {
-                productName.classList.remove('shake');
-                document.querySelector('.rating').classList.remove('shake', 'error');
-                installationDate.classList.remove('shake');
+                removeShakeEffect();
             }, 500);
         }
     });
+
+    function showError(element, message) {
+        element.classList.add('shake', 'error');
+
+        // Create and insert the error message
+        const errorMessage = document.createElement('span');
+        errorMessage.className = 'error-message';
+        errorMessage.textContent = message;
+        
+        // Insert the error message after the element
+        element.parentNode.insertBefore(errorMessage, element.nextSibling);
+    }
+
+    function clearErrorMessages() {
+        const errorMessages = document.querySelectorAll('.error-message');
+        errorMessages.forEach(message => message.remove());
+    }
+
+    function removeShakeEffect() {
+        document.querySelectorAll('.shake').forEach(element => element.classList.remove('shake'));
+    }
+
+
+
 
     // Set max date
     const today = new Date();
