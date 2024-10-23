@@ -53,6 +53,28 @@ window.onload = function() {
         }
     });
 
+    // Add input event listeners for real-time validation
+    productSelect.addEventListener('change', function() {
+        if (productSelect.value !== "") {
+            clearError(productSelect);
+        }
+    });
+
+    const ratingInputs = document.querySelectorAll('input[name="rating"]');
+    ratingInputs.forEach(input => {
+        input.addEventListener('change', function() {
+            if (document.querySelector('input[name="rating"]:checked')) {
+                clearError(document.querySelector('.rating'));
+            }
+        });
+    });
+
+    installationDate.addEventListener('input', function() {
+        if (installationDate.value !== "") {
+            clearError(installationDate);
+        }
+    });
+
     function showError(element, message) {
         element.classList.add('shake', 'error');
 
@@ -68,6 +90,16 @@ window.onload = function() {
     function clearErrorMessages() {
         const errorMessages = document.querySelectorAll('.error-message');
         errorMessages.forEach(message => message.remove());
+        
+        document.querySelectorAll('.error').forEach(element => element.classList.remove('error'));
+    }
+
+    function clearError(element) {
+        const errorMessage = element.parentNode.querySelector('.error-message');
+        if (errorMessage) {
+            errorMessage.remove();
+            element.classList.remove('error');
+        }
     }
 
     function removeShakeEffect() {
