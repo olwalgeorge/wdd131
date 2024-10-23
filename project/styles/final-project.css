@@ -41,6 +41,13 @@ header {
     
 }
 
+header span {
+    font-weight: 300;
+    font-size: 1.1rem;
+    margin-left: 0.25rem;
+    color: var(--nav-link-color);
+}
+
 .logo-title {
     display: flex;
     align-items: center;
@@ -125,7 +132,7 @@ nav ul li a:hover::after {
     align-items: center;
     padding: 2rem 5%;
     color: white;
-    overflow: hidden; /* Ensure raindrops don't overflow */
+    overflow: hidden; 
 }
 
 .hero-image {
@@ -238,6 +245,12 @@ nav ul li a:hover::after {
     margin-top: 2rem;
     z-index: 1;
     
+}
+.card img {
+    max-width: 100%;
+    max-height: 150px;
+    display: block;
+    margin: 0 auto;
 }
 
 .card h3 {
@@ -379,41 +392,45 @@ nav ul li a:hover::after {
       100% { color: hsl(0, 100%, 50%); }
   }
   
-  .feature {
+ 
+  .feature > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     animation: fadeInUp 0.8s ease-out;
   }
-  
+
   .feature h2 {
     animation: fadeInUp 0.8s ease-out 0.2s;
     animation-fill-mode: both;
   }
   
-  .tick-list {
+  .feature .tick-list {
     list-style-type: none;
     padding-left: 0;
     animation: fadeInUp 0.8s ease-out 0.4s;
     animation-fill-mode: both;
   }
   
-  .animate-item {
+  .feature .animate-item {
     display: flex;
     align-items: center;
     margin-bottom: 10px;
     transition: transform 0.3s ease;
   }
   
-  .tick {
+  .feature .tick {
     display: inline-block;
     margin-right: 10px;
     font-size: 1.2em;
     transition: transform 0.3s ease;
   }
   
-  .animate-item.active {
+  .feature .animate-item.active {
     transform: translateX(5px);
   }
   
-  .animate-item.active .tick {
+  .feature .animate-item.active .tick {
     transform: scale(1.2);
     animation: hueChange 2s infinite;
   }
@@ -427,32 +444,32 @@ nav ul li a:hover::after {
 
 .feature-1:hover,
 .new-feature-item:hover {
-    box-shadow: 0 8px 16px rgba(0, 255, 204, 0.3); /* Highlight on hover */
+    box-shadow: 0 8px 16px rgba(0, 255, 204, 0.3); 
 }
 
 .new-feature-item {
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Ensures space between h2/p and img */
+    justify-content: space-between;
     align-items: center;
     text-align: center;
-    background-color: #f9f9f9; /* Optional: Add background color for contrast */
-    border-radius: 8px; /* Optional: Rounded corners for modern look */
-    box-shadow: var(--shadow); /* Optional: Subtle shadow for depth */
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
     padding: 20px;
-    height: 300px; /* Set a fixed height to keep uniformity */
-    overflow: hidden; /* Prevent content overflow */
-    
+    height: 300px;
+    overflow: hidden;
 }
 
 .new-feature-item img {
     margin-bottom: 15px;
     width: 100%;
     height: auto;
-    max-height: 150px; /* Ensure images are uniform in size */
-    object-fit: cover; /* Ensures images maintain aspect ratio */
-    margin-top: auto; /* Push image to the bottom */
+    max-height: 150px;
+    object-fit: cover;
+    margin-top: auto;
 }
+
 
 .new-feature-item h3 .new-feature-item p{
     color: var(--body-bg);

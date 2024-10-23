@@ -156,7 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         items[currentIndex].classList.add('active');
         const activeTick = items[currentIndex].querySelector('.tick');
-        activeTick.style.animation = 'hueChange 2s infinite'; // Set hue animation
+        activeTick.style.animation = 'hueChange 2s infinite'; // 
         currentIndex = (currentIndex + 1) % items.length;
       }
       setTimeout(animateItems, 2000);
@@ -174,13 +174,13 @@ document.addEventListener('DOMContentLoaded', () => {
       item.addEventListener('mouseenter', () => {
         item.classList.add('active');
         const tick = item.querySelector('.tick');
-        tick.style.animation = 'hueChange 2s infinite'; // Activate hue animation on hover
+        tick.style.animation = 'hueChange 2s infinite'; 
       });
       item.addEventListener('mouseleave', () => {
         if (!animationPaused) {
           item.classList.remove('active');
           const tick = item.querySelector('.tick');
-          tick.style.animation = 'none'; // Stop hue animation on hover out
+          tick.style.animation = 'none'; 
         }
       });
     });
@@ -192,17 +192,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const raindrop = document.createElement('div');
     raindrop.classList.add('raindrop');
     
-    const size = Math.random() * 5 + 2; // Random size between 2-7px
-    const startPositionX = Math.random() * 100; // Random start position
-    const duration = Math.random() * 1 + 0.5; // Random duration between 0.5-1.5s
+    const size = Math.random() * 5 + 2;
+    const startPositionX = Math.random() * 100;
+    const duration = Math.random() * 1 + 0.5;
     
     raindrop.style.width = `${size}px`;
-    raindrop.style.height = `${size * 5}px`; // Make droplets elongated
+    raindrop.style.height = `${size * 5}px`;
     raindrop.style.left = `${startPositionX}%`;
     raindrop.style.animationDuration = `${duration}s`;
     
     document.querySelector('.raindrops').appendChild(raindrop);
-    
     // Remove the raindrop after it falls
     setTimeout(() => {
         raindrop.remove();
