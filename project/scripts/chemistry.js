@@ -129,12 +129,30 @@ function calculateMasses() {
         let output = `<h2>Results for ${formula}</h2>`;
         output += `<p>Total molar mass: ${totalMolarMass.toFixed(4)} g/mol</p>`;
         output += `<p>Number of moles: ${moles.toFixed(4)} mol</p>`;
-        output += `<h3>Mass of each element:</h3>`;
+        
+        output += `<h3>Element Composition:</h3>`;
+        output += `<table>
+                     <tr>
+                       <th>Element</th>
+                       <th>Symbol</th>
+                       <th>Count</th>
+                       <th>Molar Mass</th>
+                       <th>Mass</th>
+                     </tr>`;
 
         for (const [symbol, quantity] of parsedFormula) {
             const elementMass = periodicTable[symbol][1] * quantity * moles;
-            output += `<p>${periodicTable[symbol][0]} (${symbol}): ${elementMass.toFixed(4)} g</p>`;
+            const elementMolarMass = periodicTable[symbol][1] * quantity;
+            output += `<tr>
+                         <td>${periodicTable[symbol][0]}</td>
+                         <td>${symbol}</td>
+                         <td>${quantity}</td>
+                         <td>${elementMolarMass.toFixed(4)} g/mol</td>
+                         <td>${elementMass.toFixed(4)} g</td>
+                       </tr>`;
         }
+        
+        output += `</table>`;
 
         resultDiv.innerHTML = output;
     } catch (error) {
