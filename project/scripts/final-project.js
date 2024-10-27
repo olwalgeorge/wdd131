@@ -141,52 +141,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
     console.log('Event listeners set up successfully');
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-    const items = document.querySelectorAll('.animate-item');
-    const featureList = document.querySelector('.tick-list');
-    let currentIndex = 0;
-    let animationPaused = false;
-  
-    function animateItems() {
-      if (!animationPaused) {
-        items.forEach(item => {
-          item.classList.remove('active');
-          const tick = item.querySelector('.tick');
-          tick.style.animation = 'none'; // Reset animation
-        });
-        items[currentIndex].classList.add('active');
-        const activeTick = items[currentIndex].querySelector('.tick');
-        activeTick.style.animation = 'hueChange 2s infinite'; // 
-        currentIndex = (currentIndex + 1) % items.length;
-      }
-      setTimeout(animateItems, 2000);
-    }
-  
-    featureList.addEventListener('mouseenter', () => {
-      animationPaused = true;
-    });
-  
-    featureList.addEventListener('mouseleave', () => {
-      animationPaused = false;
-    });
-  
-    items.forEach(item => {
-      item.addEventListener('mouseenter', () => {
-        item.classList.add('active');
-        const tick = item.querySelector('.tick');
-        tick.style.animation = 'hueChange 2s infinite'; 
-      });
-      item.addEventListener('mouseleave', () => {
-        if (!animationPaused) {
-          item.classList.remove('active');
-          const tick = item.querySelector('.tick');
-          tick.style.animation = 'none'; 
-        }
-      });
-    });
-  
-    setTimeout(animateItems, 2000);
-  });
 
   function createRaindrop() {
     const raindrop = document.createElement('div');

@@ -371,78 +371,9 @@ nav ul li a:hover::after {
   .stats h3 {
     font-weight: bold;
     font-size: var(--font-size-medium);
-  }
-  
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  @keyframes hueChange {
-      0% { color: hsl(0, 100%, 50%); }
-      25% { color: hsl(120, 100%, 50%); }
-      50% { color: hsl(240, 100%, 50%); }
-      75% { color: hsl(60, 100%, 50%); }
-      100% { color: hsl(0, 100%, 50%); }
-  }
-  
- 
-  .feature > div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    animation: fadeInUp 0.8s ease-out;
-  }
+  }  
 
-  .feature h2 {
-    animation: fadeInUp 0.8s ease-out 0.2s;
-    animation-fill-mode: both;
-  }
-  
-  .feature .tick-list {
-    list-style-type: none;
-    padding-left: 0;
-    animation: fadeInUp 0.8s ease-out 0.4s;
-    animation-fill-mode: both;
-  }
-  
-  .feature .animate-item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-    transition: transform 0.3s ease;
-  }
-  
-  .feature .tick {
-    display: inline-block;
-    margin-right: 10px;
-    font-size: 1.2em;
-    transition: transform 0.3s ease;
-  }
-  
-  .feature .animate-item.active {
-    transform: translateX(5px);
-  }
-  
-  .feature .animate-item.active .tick {
-    transform: scale(1.2);
-    animation: hueChange 2s infinite;
-  }
-
-  .new-feature {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px; /* Adjust spacing as needed */
-    padding: 20px;
-}
-
-.feature-1:hover,
+  .feature-1:hover,
 .new-feature-item:hover {
     box-shadow: 0 8px 16px rgba(0, 255, 204, 0.3); 
 }
@@ -461,6 +392,13 @@ nav ul li a:hover::after {
     overflow: hidden;
 }
 
+.new-feature {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px; 
+    padding: 20px;
+}
+
 .new-feature-item img {
     margin-bottom: 15px;
     width: 100%;
@@ -470,9 +408,15 @@ nav ul li a:hover::after {
     margin-top: auto;
 }
 
+.new-feature-item h3, .new-feature-item p {
 
-.new-feature-item h3 .new-feature-item p{
-    color: var(--body-bg);
+    color: var(--button-bg);
+}
+
+.features .feature-2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 
