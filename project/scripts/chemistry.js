@@ -110,6 +110,16 @@ function makePeriodicTable() {
         "Zr": ["Zirconium", 91.224, 40],
     };
 }
+
+document.getElementById('formula').addEventListener('input', function(e) {
+    let cursorPosition = e.target.selectionStart;
+    e.target.value = e.target.value.replace(/\./g, '·');
+    e.target.value = e.target.value.replace(/\s/g, '');
+    e.target.setSelectionRange(cursorPosition, cursorPosition);
+
+});
+
+
 function calculateMasses() {
     const formula = document.getElementById('formula').value;
     const totalMass = parseFloat(document.getElementById('totalMass').value);
