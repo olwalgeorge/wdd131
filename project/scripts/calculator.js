@@ -8,6 +8,11 @@ let calculatedValues = {
     Stage_2: {},
     Stage_3: {}
 };
+let cumulativeFertilizers = {
+    Stage_1: {},
+    Stage_2: {},
+    Stage_3: {}
+};
 
 document.addEventListener('DOMContentLoaded', initializeCalculator);
 
@@ -30,9 +35,11 @@ function initializeCalculator() {
     currentElementDiv.id = 'currentElement';
     document.querySelector('.form-container').insertBefore(currentElementDiv, document.getElementById('result'));
     
+    disableInputFields(false);
     setupCurrentElement();
     populateRecipeTable();
     updateRecipeTable();
+    updateFertilizerSummaryTable();
 }
 
 function addEventListeners(select, input, button, injectorRatioInput, stockTankCapacityInput) {
@@ -83,8 +90,10 @@ function setupCurrentElement() {
         if (remainingValue <= 0) {
             statusMessage = ' (Not required or target amount met)';
             calculateButton.textContent = 'Continue';
+            disableInputFields(true);
         } else {
             calculateButton.textContent = 'Calculate';
+            disableInputFields(false);
         }
         calculateButton.disabled = false;
         
@@ -137,8 +146,43 @@ function handleCalculateOrContinue() {
         currentElementIndex++;
         setupCurrentElement();
     } else {
-        calculateCurrentElement();
+        if (validateInputs()) {
+            calculateCurrentElement();
+        }
     }
+}
+
+function validateInputs() {
+    const formula = document.getElementById('formula').value;
+    const totalMass = document.getElementById('totalMass').value;
+    const injectorRatio = document.getElementById('injectorRatio').value;
+    const stockTankCapacity = document.getElementById('stockTankCapacity').value;
+
+    let isValid = true;
+    let errorMessage = '';
+
+    if (!formula) {
+        errorMessage += 'Please select a fertilizer.\n';
+        isValid = false;
+    }
+    if (!totalMass) {
+        errorMessage += 'Please enter the target mass.\n';
+        isValid = false;
+    }
+    if (!injectorRatio) {
+        errorMessage += 'Please enter the injector ratio.\n';
+        isValid = false;
+    }
+    if (!stockTankCapacity) {
+        errorMessage += 'Please enter the stock tank capacity.\n';
+        isValid = false;
+    }
+
+    if (!isValid) {
+        alert(errorMessage);
+    }
+
+    return isValid;
 }
 
 function calculateCurrentElement() {
@@ -158,8 +202,13 @@ function calculateCurrentElement() {
             totalMolarMass += periodicTable[symbol][1] * quantity;
         }
 
+        const elementQuantity = getElementQuantity(parsedFormula, currentElement);
+        if (elementQuantity === 0) {
+            throw new Error(`Selected fertilizer ${formula} does not contain ${currentElement}`);
+        }
+
         // Calculate the required mg/L of the compound needed
-        const requiredCompoundMg = totalMass / (periodicTable[currentElement][1] * getElementQuantity(parsedFormula, currentElement) / totalMolarMass);
+        const requiredCompoundMg = totalMass / (periodicTable[currentElement][1] * elementQuantity / totalMolarMass);
 
         let output = `<h2>Results for ${formula}</h2>`;
         output += `<p>Target ${currentElement} mass: ${totalMass.toFixed(2)} mg/L</p>`;
@@ -188,12 +237,21 @@ function calculateCurrentElement() {
         // Calculate total compound needed
         const totalCompoundNeeded = (requiredCompoundMg * stockTankCapacity * injectorRatio) / 1000; // Convert to g
 
+        // Store the fertilizer amount
+        if (!cumulativeFertilizers[`Stage_${currentStage}`][formula]) {
+            cumulativeFertilizers[`Stage_${currentStage}`][formula] = 0;
+        }
+        cumulativeFertilizers[`Stage_${currentStage}`][formula] += totalCompoundNeeded;
+
         output += `<p>Total ${formula} needed: ${totalCompoundNeeded.toFixed(2)} g</p>`;
 
         resultDiv.innerHTML = output;
 
         // Update recipe table with new calculated values
         updateRecipeTable();
+
+        // Update fertilizer summary table
+        updateFertilizerSummaryTable();
 
         // Move to next element
         currentElementIndex++;
@@ -279,4 +337,51 @@ function updateRecipeTable() {
             <td>${diff3.toFixed(2)}</td>
         `;
     });
+}
+
+function updateFertilizerSummaryTable() {
+    let summaryTable = document.getElementById('fertilizerSummaryTable');
+    if (!summaryTable) {
+        summaryTable = document.createElement('table');
+        summaryTable.id = 'fertilizerSummaryTable';
+        document.querySelector('.table-container').appendChild(summaryTable);
+    }
+
+    let summaryHTML = `
+        <thead>
+            <tr>
+                <th>Stage</th>
+                <th>Fertilizer</th>
+                <th>Amount (g)</th>
+            </tr>
+        </thead>
+        <tbody>
+    `;
+
+    for (let stage = 1; stage <= 3; stage++) {
+        const stageData = cumulativeFertilizers[`Stage_${stage}`];
+        for (const formula in stageData) {
+            const fertilizer = fertilizers.find(f => f.formula === formula);
+            if (fertilizer) {
+                summaryHTML += `
+                    <tr>
+                        <td>Stage ${stage}</td>
+                        <td>${fertilizer.name} (${formula})</td>
+                        <td>${stageData[formula].toFixed(2)}</td>
+                    </tr>
+                `;
+            }
+        }
+    }
+
+    summaryHTML += '</tbody>';
+    summaryTable.innerHTML = summaryHTML;
+}
+
+function disableInputFields(disable) {
+    document.getElementById('fertilizerSelect').disabled = disable;
+    document.getElementById('formula').disabled = disable;
+    document.getElementById('totalMass').disabled = disable;
+    document.getElementById('injectorRatio').disabled = disable;
+    document.getElementById('stockTankCapacity').disabled = disable;
 }
