@@ -394,11 +394,6 @@ footer p {
     margin: 0 1rem;
 }
 
-.social-media {
-    display: flex;
-    justify-content: center;
-    margin-top: 1rem;
-}
 
 .hamburger-menu {
     display: none;
