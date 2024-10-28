@@ -8,12 +8,18 @@
     --button-hover-bg: #00ffcc;
     --hero-image-filter: brightness(0.7);
     --card-bg: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(20px);
     --card-border: rgba(255, 255, 255, 0.2);
     --card-text-color: #ffffff;
     --features-bg: rgba(13, 13, 13, 0.8);
     --footer-bg: #1a1a1a;
     --footer-color: #00ffcc;
+    --spacing-small: 0.5rem;
+    --spacing-medium: 1rem;
+    --spacing-large: 1.5rem;
+    --border-radius: 8px;
+    --shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --shadow-hover: 0 8px 16px rgba(0, 255, 204, 0.3);
+    --transition: box-shadow 0.3s ease;
 }
 
 body {
@@ -429,22 +435,9 @@ footer {
     font-weight: var(--font-weight-regular);
 }
 
-
-.footer-nav a {
-    color: var(--footer-color);
-    
+footer p {
+    margin: 0;
 }
-
-@media (max-width: 768px) {
-    .feature-1 {
-        grid-template-columns: 1fr;
-    }
-}
-
-
-
-
-
 
 
 /* Responsive adjustments */

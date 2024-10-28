@@ -22,9 +22,9 @@
         </button>
         <nav id="main-nav">        
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Features</a></li>
-                <li><a href="#">Subscription</a></li>
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="calculator.html">Calculator</a></li>
+                <li><a href="crops.html">Crops</a></li>
                 <li><a href="#">Contact Us</a></li>
             </ul>
         </nav>
@@ -32,7 +32,7 @@
     <main>
         <!-- Hero Section -->
         <section class="hero">
-            <img src="images/hero.webp" alt="Hero Image" class="hero-image">
+            <img src="images/hero.jpg" alt="Hero Image" class="hero-image">
             <div class="raindrops"></div>
             <div class="hero-content">
                 <h1>Welcome to NutriCrop</h1>
@@ -141,17 +141,10 @@
         </section>
 
         <!-- Footer -->
-        <footer>
-            <div class="footer-content">
-                © 2024 NutriCrop. All rights reserved.
-                <nav class="footer-nav">
-                    About Us | Contact Info | Privacy Policy | Terms of Service
-                </nav>
-                <div class="social-media">
-                    <!-- Social Media Icons -->
-                    [Social Media Icons Here]
-                </div>
-            </div>
+        <footer>            
+            <p>&copy; <span id="currentyear"></span> NutriCrop Calculator - George Olwal, Kenya</p>
+            <p>Last Modification: <span id="lastModified"></span></p>        
+                
         </footer> 
     </main> 
 </body>
