@@ -5,33 +5,71 @@ const essentialElements = {
         "Phosphoric acid (59%) (liquid)",
         "Potassium bicarbonate"
     ],
-   
-    "Cl": [       
+    "Cl": [
         "Calcium chloride (solid)",
         "Calcium chloride (liquid)",
-        "Potassium chloride"    
-    ],    
+        "Potassium chloride"
+    ],
     "Ca": [
-        "Calcium nitrate (solid)",
         "Calcium nitrate (liquid)",
+        "Calcium nitrate (solid)",
         "Calcium chloride (solid)",
         "Calcium chloride (liquid)"
     ],
     "NH4-N": [
-        "Ammonium nitrate (liquid)",
-        "Monoammonium phosphate"
+        "Ammonium nitrate (solid)",
+        "Monoammonium phosphate",
+        "Urea"
     ],
-    "NH4-N": ["Ammonium nitrate", "Monoammonium phosphate", "Urea"],
-    "P": ["Monopotassium phosphate"],
-    "Mg": ["Magnesium sulphate", "Magnesium nitrate"],
-    "S": ["Potassium sulphate", "Magnesium sulphate", "Manganese sulphate"],
-    "K": ["Potassium nitrate", "Potassium sulphate"],
-    "N": ["Potassium nitrate"],
-    "Fe": ["Iron chelate (Fe-EDTA)", "Iron chelate (Fe-DTPA)", "Iron chelate (Fe-EDDHA)", "Iron chelate (Fe-HBED)"],
-    "Mn": ["Manganese sulphate", "Manganese chelate"],
-    "Mg": ["Magnesium nitrate (liquid)", "Magnesiumnitrate"],
-    "Zn": ["Zinc sulphate", "Zinc chelate"],
-    "Cu": ["Copper sulphate"],
-    "B": ["Boric acid"],
-    "Mo": ["Sodium molybdate"]
+    "P": [
+        "Monopotassium phosphate"
+    ],
+    "Mg": [
+        "Magnesium sulphate",
+        "Magnesium nitrate (liquid)",
+        "Magnesium nitrate (solid)"
+    ],
+    "S": [
+        "Potassium sulphate",
+        "Magnesium sulphate",
+        "Manganese sulphate"
+    ],
+    "K": [
+        "Potassium nitrate",
+        "Potassium sulfate",
+        "Potassium chloride"
+    ],
+    "N": [
+        "Potassium nitrate"
+    ],
+    "Fe": [
+        "Iron chelate (Fe-EDTA)",
+        "Iron chelate (Fe-DTPA)",
+        "Iron chelate (Fe-EDDHA)",
+        "Iron chelate (Fe-HBED)"
+    ],
+    "Mn": [
+        "Manganese chelate",
+        "Manganese sulphate"
+    ],
+    "Mg": [
+        "Magnesium nitrate (liquid)",
+        "Magnesium nitrate (solid)"
+    ],
+    "Zn": [
+        "Zinc chelate",
+        "Zinc sulphate"
+    ],
+    "Cu": [
+        "Copper chelate",
+        "Copper sulphate"
+    ],
+    "B": [
+        "Boric acid",
+        "Borax"
+    ],
+    "Mo": [
+        "Sodium molybdate"
+    ]
 };
+

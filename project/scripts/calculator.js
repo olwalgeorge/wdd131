@@ -157,30 +157,29 @@ function validateInputs() {
     const totalMass = document.getElementById('totalMass').value;
     const injectorRatio = document.getElementById('injectorRatio').value;
     const stockTankCapacity = document.getElementById('stockTankCapacity').value;
-
     let isValid = true;
-    let errorMessage = '';
-
+    let errorMessage = [];
+    
     if (!formula) {
-        errorMessage += 'Please select a fertilizer.\n';
+        errorMessage.push('Please select a fertilizer.');
         isValid = false;
     }
     if (!totalMass) {
-        errorMessage += 'Please enter the target mass.\n';
+        errorMessage.push('Please enter the target mass.');
         isValid = false;
     }
     if (!injectorRatio) {
-        errorMessage += 'Please enter the injector ratio.\n';
+        errorMessage.push('Please enter the injector ratio.');
         isValid = false;
     }
     if (!stockTankCapacity) {
-        errorMessage += 'Please enter the stock tank capacity.\n';
+        errorMessage.push('Please enter the stock tank capacity.');
         isValid = false;
     }
-
     if (!isValid) {
-        alert(errorMessage);
+        alert(errorMessage.join('\n'));
     }
+    
 
     return isValid;
 }
