@@ -1,13 +1,19 @@
+// recipe.js
+
 const recipeData = {
-    "Nutrient": ["pH", "EC", "Na Cl", "N-NH", "K", "Ca", "Mg", "N-NO3", "S", "P", "Fe", "Mn", "Zn", "B", "Cu", "Mo"],
-    "Stage_1": [5.3, 2.2, 0, 6.5, 273, 200.5, 42.25, 235, 48, 39, 2250, 550, 327, 388, 48, 48],
-    "Stage_2": [5.3, 2.2, 0, 6.5, 312, 200.5, 42.25, 249, 48, 39, 2250, 550, 327, 388, 48, 48],
-    "Stage_3": [5.3, 2.2, 0, 6.5, 273, 220.5, 42.25, 249, 48, 39, 2250, 550, 327, 388, 48, 48]
+    "Nutrient": ["N", "NH4-N", "P", "K", "Ca", "Mg", "S", "Cl", "Fe", "Mn", "Zn", "Cu", "B", "Mo", "H+"],
+    "Stage_1": [90, 0, 47, 144, 144, 60, 116, 89, 2, 0.55, 0.33, 0.05, 0.34, 0.05, 0],
+    "Stage_2": [120, 0, 47, 350, 160, 60, 116, 89, 2, 0.55, 0.33, 0.05, 0.34, 0.05, 0],
+    "Stage_3": [190, 0, 47, 350, 200, 60, 116, 89, 2, 0.55, 0.33, 0.05, 0.34, 0.05, 0]
 };
 
 function populateRecipeTable() {
     const tableBody = document.querySelector('#recipeTable tbody');
     const tableHead = document.querySelector('#recipeTable thead tr');
+
+    // Clear existing table content
+    tableBody.innerHTML = '';
+    tableHead.innerHTML = '';
 
     // Update table header
     tableHead.innerHTML = `
@@ -38,6 +44,3 @@ function populateRecipeTable() {
     });
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    populateRecipeTable();
-});

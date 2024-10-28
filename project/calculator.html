@@ -5,21 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fertilizer Mass Calculator</title>
     <link rel="stylesheet" href="styles/calculator.css">
+    <script src="scripts/essential_elements.js"></script>
     <script src="scripts/fertilizers.js"></script>
     <script src="scripts/formula.js"></script>
     <script src="scripts/chemistry.js"></script>
-    <script src="scripts/calculator.js"></script>
     <script src="scripts/recipe.js"></script>
+    <script src="scripts/calculator.js"></script>
+
 </head>
 <body>
     <div class="container">
         <div class="form-container">
             <h1>Fertilizer Mass Calculator</h1>
+            <label for="fertilizerSelect">Select a fertilizer:</label>
             <select id="fertilizerSelect">
                 <option value="">Select a fertilizer</option>
             </select>
+            
+            <label for="formula">Chemical formula:</label>
             <input type="text" id="formula" placeholder="Enter chemical formula" readonly>
+            
+            <label for="totalMass">Total mass (g):</label>
             <input type="number" id="totalMass" placeholder="Enter total mass in grams">
+            
+            <label for="injectorRatio">Injector Ratio:</label>
+            <input type="number" id="injectorRatio" placeholder="Enter injector ratio (integer)" min="0">
+            
+            <label for="stockTankCapacity">Stock tank capacity (L):</label>
+            <input type="number" id="stockTankCapacity" placeholder="Enter stock tank capacity in liters (integer)" min="0">
+            
             <button id="calculateButton">Calculate</button>
             <div id="result"></div>
         </div>

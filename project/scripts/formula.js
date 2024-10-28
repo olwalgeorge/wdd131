@@ -7,8 +7,6 @@ class FormulaError extends Error {
   }
 }
   
-
-
 function parseFormula(formula, periodicTableDict) {
     if (typeof formula !== "string") {
         throw new Error(`wrong data type for parameter formula; formula is a ${typeof formula} but must be a string`);
