@@ -7,7 +7,7 @@ let calculatedValues = {
     Stage_1: {},
     Stage_2: {},
     Stage_3: {}
-}; // Object to store calculated values for each element per stage
+};
 
 document.addEventListener('DOMContentLoaded', initializeCalculator);
 
@@ -20,21 +20,10 @@ function initializeCalculator() {
 
     addEventListeners(fertilizerSelect, formulaInput, calculateButton, injectorRatioInput, stockTankCapacityInput);
     
-    // Add stage selection
-    const stageSelect = document.createElement('select');
-    stageSelect.id = 'stageSelect';
-    stageSelect.innerHTML = `
-        <option value="1">Stage 1</option>
-        <option value="2">Stage 2</option>
-        <option value="3">Stage 3</option>
-    `;
-    stageSelect.addEventListener('change', (e) => {
-        currentStage = parseInt(e.target.value);
-        currentElementIndex = 0;
-        setupCurrentElement();
-    });
-    
-    document.querySelector('.form-container').insertBefore(stageSelect, fertilizerSelect);
+    // Add stage display
+    const stageDisplay = document.createElement('div');
+    stageDisplay.id = 'stageDisplay';
+    document.querySelector('.form-container').insertBefore(stageDisplay, fertilizerSelect);
     
     // Add current element display
     const currentElementDiv = document.createElement('div');
@@ -76,7 +65,9 @@ function formatFormulaInput(event) {
 }
 
 function setupCurrentElement() {
-    if (currentElementIndex < elements.length) {
+    updateStageDisplay();
+    
+    if (currentStage <= 3 && currentElementIndex < elements.length) {
         const element = elements[currentElementIndex];
         const sources = essentialElements[element];
         
@@ -99,11 +90,22 @@ function setupCurrentElement() {
         
         document.getElementById('currentElement').textContent = `Current Element: ${element}${statusMessage}`;
         document.getElementById('currentElement').style.fontWeight = 'bold';
+    } else if (currentStage <= 3) {
+        // Move to next stage
+        currentStage++;
+        currentElementIndex = 0;
+        setupCurrentElement();
     } else {
-        document.getElementById('currentElement').textContent = "All elements processed";
+        document.getElementById('currentElement').textContent = "All stages processed";
         document.getElementById('calculateButton').disabled = true;
-        document.getElementById('calculateButton').textContent = 'Calculate';
+        document.getElementById('calculateButton').textContent = 'Finished';
     }
+}
+
+function updateStageDisplay() {
+    const stageDisplay = document.getElementById('stageDisplay');
+    stageDisplay.textContent = `Current Stage: ${currentStage}`;
+    stageDisplay.style.fontWeight = 'bold';
 }
 
 function updateFertilizerDropdown(sources) {
@@ -132,10 +134,8 @@ function handleCalculateOrContinue() {
     const remainingValue = recipeValue - calculatedValue;
     
     if (remainingValue <= 0) {
-        if (confirm(`${element} is not required or its target amount has been met. Continue to the next element?`)) {
-            currentElementIndex++;
-            setupCurrentElement();
-        }
+        currentElementIndex++;
+        setupCurrentElement();
     } else {
         calculateCurrentElement();
     }

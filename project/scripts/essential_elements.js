@@ -14,7 +14,7 @@ const essentialElements = {
         "Potassium chloride"    
     ],    
     "Ca": [
-        "Calcium nitrate",
+        "Calcium nitrate (solid)",
         "Calcium nitrate (liquid)",
         "Calcium chloride (solid)",
         "Calcium chloride (liquid)"
