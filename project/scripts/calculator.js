@@ -3,7 +3,11 @@
 let currentElementIndex = 0;
 const elements = Object.keys(essentialElements);
 let currentStage = 1;
-let calculatedValues = {}; // Object to store calculated values for each element
+let calculatedValues = {
+    Stage_1: {},
+    Stage_2: {},
+    Stage_3: {}
+}; // Object to store calculated values for each element per stage
 
 document.addEventListener('DOMContentLoaded', initializeCalculator);
 
@@ -27,7 +31,6 @@ function initializeCalculator() {
     stageSelect.addEventListener('change', (e) => {
         currentStage = parseInt(e.target.value);
         currentElementIndex = 0;
-        calculatedValues = {}; // Reset calculated values when changing stages
         setupCurrentElement();
     });
     
@@ -40,7 +43,7 @@ function initializeCalculator() {
     
     setupCurrentElement();
     populateRecipeTable();
-    updateRecipeTable({}); // Initialize with empty actual masses
+    updateRecipeTable();
 }
 
 function addEventListeners(select, input, button, injectorRatioInput, stockTankCapacityInput) {
@@ -80,7 +83,7 @@ function setupCurrentElement() {
         updateFertilizerDropdown(sources);
         
         const recipeValue = getRecipeValue(element, currentStage);
-        const calculatedValue = calculatedValues[element] || 0;
+        const calculatedValue = calculatedValues[`Stage_${currentStage}`][element] || 0;
         const remainingValue = Math.max(0, recipeValue - calculatedValue);
         document.getElementById('totalMass').value = remainingValue.toFixed(2);
         
@@ -125,7 +128,7 @@ function getRecipeValue(element, stage) {
 function handleCalculateOrContinue() {
     const element = elements[currentElementIndex];
     const recipeValue = getRecipeValue(element, currentStage);
-    const calculatedValue = calculatedValues[element] || 0;
+    const calculatedValue = calculatedValues[`Stage_${currentStage}`][element] || 0;
     const remainingValue = recipeValue - calculatedValue;
     
     if (remainingValue <= 0) {
@@ -173,7 +176,7 @@ function calculateCurrentElement() {
         for (const [symbol, quantity] of parsedFormula) {
             const elementMass = (periodicTable[symbol][1] * quantity / totalMolarMass) * requiredCompoundMg;
             actualMasses[symbol] = elementMass;
-            calculatedValues[symbol] = (calculatedValues[symbol] || 0) + elementMass;
+            calculatedValues[`Stage_${currentStage}`][symbol] = (calculatedValues[`Stage_${currentStage}`][symbol] || 0) + elementMass;
             output += `<tr>
                          <td>${periodicTable[symbol][0]}</td>
                          <td>${elementMass.toFixed(2)}</td>
@@ -190,7 +193,7 @@ function calculateCurrentElement() {
         resultDiv.innerHTML = output;
 
         // Update recipe table with new calculated values
-        updateRecipeTable(actualMasses);
+        updateRecipeTable();
 
         // Move to next element
         currentElementIndex++;
@@ -250,7 +253,7 @@ function populateRecipeTable() {
     });
 }
 
-function updateRecipeTable(actualMasses) {
+function updateRecipeTable() {
     const tableBody = document.querySelector('#recipeTable tbody');
     
     recipeData.Nutrient.forEach((nutrient, index) => {
@@ -258,11 +261,13 @@ function updateRecipeTable(actualMasses) {
         const stage1 = recipeData.Stage_1[index];
         const stage2 = recipeData.Stage_2[index];
         const stage3 = recipeData.Stage_3[index];
-        const calculatedValue = calculatedValues[nutrient] || 0;
+        const calculatedValue1 = calculatedValues.Stage_1[nutrient] || 0;
+        const calculatedValue2 = calculatedValues.Stage_2[nutrient] || 0;
+        const calculatedValue3 = calculatedValues.Stage_3[nutrient] || 0;
         
-        const diff1 = stage1 - calculatedValue;
-        const diff2 = stage2 - calculatedValue;
-        const diff3 = stage3 - calculatedValue;
+        const diff1 = stage1 - calculatedValue1;
+        const diff2 = stage2 - calculatedValue2;
+        const diff3 = stage3 - calculatedValue3;
         
         row.innerHTML = `
             <td>${nutrient}</td>

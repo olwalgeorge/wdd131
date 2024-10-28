@@ -4,7 +4,7 @@ const fertilizers = [
     { name: "Phosphoric acid (59%) (liquid)", formula: "H3PO4" },
     { name: "Potassium bicarbonate", formula: "KHCO3" },
     { name: "Ammonium nitrate (liquid)", formula: "NH4NO3" },
-    { name: "Monoammoniumphosphate", formula: "NH4H2PO4" },
+    { name: "Monoammonium phosphate", formula: "NH4H2PO4" },
     { name: "Urea", formula: "CO(NH2)2" },
     { name: "Urea phosphate", formula: "CO(NH2)2·H3PO4" },
     { name: "Calcium nitrate (solid)", formula: "Ca(NO3)2·4H2O" },
