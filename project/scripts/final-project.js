@@ -1,42 +1,18 @@
 document.addEventListener('DOMContentLoaded', function() {
     const elements = ['nitrogen', 'phosphorus', 'potassium', 'calcium', 'magnesium'];
     const weatherElements = ['temperature', 'description', 'humidity'];
-    const updateIntervals = {};
-    const currentValues = {};
 
-    // Initialize values and intervals for chemical elements
+    // Initialize values for chemical elements
     elements.forEach(element => {
-        currentValues[element] = Math.floor(Math.random() * (200 - 56 + 1)) + 56;
-        updateIntervals[element] = Math.random() * 5000 + 2000;
+        updateChemicalElement(element);
     });
 
     function updateChemicalElement(element) {
         const spanElement = document.querySelector(`#${element} span`);
         if (spanElement) {
-            const targetValue = Math.floor(Math.random() * (200 - 56 + 1)) + 56;
-            const steps = 20;
-            const stepSize = (targetValue - currentValues[element]) / steps;
-            let step = 0;
-
-            const smoothUpdate = setInterval(() => {
-                currentValues[element] += stepSize;
-                spanElement.textContent = Math.round(currentValues[element]);
-                step++;
-                if (step >= steps) {
-                    clearInterval(smoothUpdate);
-                    currentValues[element] = targetValue;
-                    spanElement.textContent = targetValue;
-                }
-            }, 50);
+            const value = Math.floor(Math.random() * (200 - 56 + 1)) + 56;
+            spanElement.textContent = value;
         }
-    }
-
-    function scheduleNextUpdate(element) {
-        updateIntervals[element] = Math.random() * 5000 + 2000;
-        setTimeout(() => {
-            updateChemicalElement(element);
-            scheduleNextUpdate(element);
-        }, updateIntervals[element]);
     }
 
     // Weather update function with fictitious data
@@ -52,42 +28,24 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelector('#humidity span').textContent = weatherData.humidity;
     }
 
-    // Initial update and schedule for each chemical element
-    elements.forEach(element => {
-        updateChemicalElement(element);
-        scheduleNextUpdate(element);
-    });
-
-    // Initial weather update and schedule periodic updates
+    // Initial weather update
     updateWeather();
-    setInterval(updateWeather, 600000);  // Update weather every 10 minutes
-});
 
-document.addEventListener('DOMContentLoaded', (event) => {
-    console.log('DOM fully loaded and parsed');
+    // Periodic updates
+    setInterval(() => {
+        elements.forEach(updateChemicalElement);
+        updateWeather();
+    }, 60000); // Update every minute
 
+    // Hamburger menu functionality
     const hamburger = document.querySelector('.hamburger-menu');
     const nav = document.querySelector('nav');
 
-    console.log('Hamburger element:', hamburger);
-    console.log('Nav element:', nav);
-
-    if (!hamburger || !nav) {
-        console.error('Hamburger menu or navigation not found');
-        return;
-    }
-
     function toggleMenu() {
-        console.log('Toggling menu');
         hamburger.classList.toggle('open');
         nav.classList.toggle('open');
-
-        // Update aria-expanded
         const isOpen = hamburger.classList.contains('open');
         hamburger.setAttribute('aria-expanded', isOpen);
-
-        console.log('After toggle - Hamburger classes:', hamburger.classList);
-        console.log('After toggle - Nav classes:', nav.classList);
     }
 
     hamburger.addEventListener('click', (event) => {
@@ -98,7 +56,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
     // Close menu when clicking outside
     document.addEventListener('click', (event) => {
         if (nav.classList.contains('open') && !nav.contains(event.target) && !hamburger.contains(event.target)) {
-            console.log('Clicking outside, closing menu');
             toggleMenu();
         }
     });
@@ -114,59 +71,11 @@ document.addEventListener('DOMContentLoaded', (event) => {
     // Close menu on Escape key press
     document.addEventListener('keydown', (event) => {
         if (event.key === 'Escape' && nav.classList.contains('open')) {
-            console.log('Escape key pressed, closing menu');
             toggleMenu();
         }
     });
 
-    // Optional: Focus trapping within the menu when open
-    nav.addEventListener('keydown', (event) => {
-        if (!nav.classList.contains('open')) return;
-
-        const focusableElements = nav.querySelectorAll('a, button, input, select, textarea, [tabindex]:not([tabindex="-1"])');
-        const firstElement = focusableElements[0];
-        const lastElement = focusableElements[focusableElements.length - 1];
-
-        if (event.key === 'Tab') {
-            if (event.shiftKey && document.activeElement === firstElement) {
-                event.preventDefault();
-                lastElement.focus();
-            } else if (!event.shiftKey && document.activeElement === lastElement) {
-                event.preventDefault();
-                firstElement.focus();
-            }
-        }
-    });
-
-    console.log('Event listeners set up successfully');
-});
-
-
-  function createRaindrop() {
-    const raindrop = document.createElement('div');
-    raindrop.classList.add('raindrop');
-    
-    const size = Math.random() * 5 + 2;
-    const startPositionX = Math.random() * 100;
-    const duration = Math.random() * 1 + 0.5;
-    
-    raindrop.style.width = `${size}px`;
-    raindrop.style.height = `${size * 5}px`;
-    raindrop.style.left = `${startPositionX}%`;
-    raindrop.style.animationDuration = `${duration}s`;
-    
-    document.querySelector('.raindrops').appendChild(raindrop);
-    // Remove the raindrop after it falls
-    setTimeout(() => {
-        raindrop.remove();
-    }, duration * 1000);
-}
-
-// Create raindrops at regular intervals
-setInterval(createRaindrop, 50);
-
- // Update lastModified
- document.addEventListener('DOMContentLoaded', (event) => {
+    // Update lastModified
     const currentyear = document.querySelector("#currentyear");
     const lastModifiedElement = document.getElementById('lastModified');
 
@@ -179,4 +88,3 @@ setInterval(createRaindrop, 50);
         lastModifiedElement.textContent = usDateFormat;
     }
 });
-
