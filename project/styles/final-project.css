@@ -114,10 +114,7 @@ nav ul li a:hover {
 .hero {
     position: relative;
     min-height: 80vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    display: flex;    
     padding: 2rem 5%;
     color: white;
     overflow: hidden; 
