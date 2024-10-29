@@ -1,6 +1,6 @@
 :root {
-    --body-bg: #ccffcc;
-    --logo-color: #00ffcc;
+    --body-bg: #ccffcc; /* light green */
+    --logo-color: #00ffcc; /* bright green */
     --nav-link-color: #ffffff;
     --nav-link-hover-color: #00ffcc;
     --button-bg: #1a1a1a;

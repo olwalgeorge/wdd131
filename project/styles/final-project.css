@@ -1,6 +1,6 @@
 :root {
     --input-border: #00ffcc;
-    --hero-image-filter: brightness(0.2) contrast(1.2) grayscale(0.3);
+    --hero-image-filter: brightness(0.8) contrast(1.1) grayscale(0.1) blur(2px) drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
     --card-bg: rgba(255, 255, 255, 0.1);
     --card-border: rgba(255, 255, 255, 0.2);
     --card-text-color: #ffffff;
@@ -13,7 +13,7 @@
     --shadow-hover: 0 8px 16px rgba(0, 255, 204, 0.3);
     --background-color: var(--body-bg);
     --text-color: var(--card-text-color);
-    --button-secondary-color: #33ccff;
+   
 }
 
 body {
