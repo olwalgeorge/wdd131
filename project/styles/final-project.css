@@ -1,6 +1,6 @@
 :root {
     --input-border: #00ffcc;
-    --hero-image-filter: brightness(0.8) contrast(1.1) grayscale(0.1) blur(2px) drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
+    --hero-image-filter: brightness(0.6) contrast(1.1) grayscale(0.1) blur(2px) drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
     --card-bg: rgba(255, 255, 255, 0.1);
     --card-border: rgba(255, 255, 255, 0.2);
     --card-text-color: #ffffff;
@@ -60,14 +60,14 @@ h2 {
     margin-bottom: 1rem;    
     font-size: 3rem;
     color: var(--logo-color);
-    text-shadow: 2px 2px 8px rgba(0, 255, 204, 0.5);
+    text-shadow: 2px 2px 16px rgba(0, 255, 204, 0.8);
 }
 
 .hero p {
     font-size: 1.5rem;
     max-width: 600px;
     margin-bottom: 2rem;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+   
 }
 
 .hero-buttons {
