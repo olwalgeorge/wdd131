@@ -1,5 +1,5 @@
 :root {
-    --body-bg: #0d0d0d;
+    --body-bg: #ccffcc;
     --logo-color: #00ffcc;
     --nav-link-color: #ffffff;
     --nav-link-hover-color: #00ffcc;
@@ -24,7 +24,7 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 1rem 5%;
-    background-color: var(--body-bg);
+    background-color: var(--footer-bg);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
     position: sticky;
     top: 0;
