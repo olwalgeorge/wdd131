@@ -43,14 +43,14 @@ input, textarea {
 
 input:focus, textarea:focus {
     outline: none;
-    border-color: #4CAF50;
+    border-color: #39ff14;
 }
 
 button {
     margin-top: 1rem;
     padding: 0.75rem;
-    background-color: #4CAF50;
-    color: white;
+    background-color: #39ff14;
+    color: black;
     border: none;
     border-radius: 4px;
     font-size: 1rem;
@@ -59,7 +59,7 @@ button {
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #2bff00;
 }
 
 .required::after {
@@ -70,7 +70,7 @@ button:hover {
 #thankYouMessage {
     display: none;
     text-align: center;
-    color: #4CAF50;
+    color: #39ff14;
     font-weight: bold;
     margin-top: 1rem;
 }
@@ -98,7 +98,7 @@ button:hover {
 }
 
 .modal-content h3 {
-    color: var(--logo-color);
+    color: #39ff14;
     margin-bottom: 10px;
 }
 
@@ -107,8 +107,8 @@ button:hover {
 }
 
 #okButton {
-    background-color: var(--logo-color);
-    color: var(--button-bg);
+    background-color: #39ff14;
+    color: black;
     border: none;
     padding: 10px 20px;
     border-radius: var(--border-radius);
@@ -117,6 +117,6 @@ button:hover {
 }
 
 #okButton:hover {
-    background-color: var(--button-hover-bg);
-    color: var(--button-bg);
+    background-color: #2bff00;
+    color: black;
 }
