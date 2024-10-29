@@ -1,6 +1,6 @@
 :root {
     --input-border: #00ffcc;
-    --hero-image-filter: brightness(0.5);
+    --hero-image-filter: brightness(0.5) contrast(1.2) grayscale(0.3);
     --card-bg: rgba(255, 255, 255, 0.1);
     --card-border: rgba(255, 255, 255, 0.2);
     --card-text-color: #ffffff;
