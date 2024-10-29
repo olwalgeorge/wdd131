@@ -539,7 +539,7 @@ footer p {
         margin: 0.5rem 0;
     }
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 500px) {
     body {
         font-size: 14px;
         max-width: 100%;
