@@ -137,15 +137,12 @@ function filterCrops(filterType) {
 
 // Event listeners for navigation
 navigation.addEventListener('click', (e) => {
-    if (e.target.tagName === 'A') {
+    if (e.target.tagName === 'A' && e.target.id !== 'home') {
         e.preventDefault();
         filterCrops(e.target.id);
     }
 });
 
-// Set current year and last modified date
-document.getElementById('currentyear').textContent = new Date().getFullYear();
-document.getElementById('lastModified').textContent = new Date(document.lastModified).toLocaleString();
 
 // Initial load
 filterCrops('all');

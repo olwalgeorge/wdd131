@@ -3,15 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Crop Gallery showcasing various types of crops including grains, vegetables, fruits, and legumes. Part of the WDD 131 - Dynamic Web Fundamentals course.">
+    <meta name="author" content="George Olwal">
+    <meta name="keywords" content="Crop Gallery, grains, vegetables, fruits, legumes, WDD 131, Dynamic Web Fundamentals, George Olwal">
+    <meta property="og:title" content="Crop Gallery" />
+    <meta property="og:description" content="Crop Gallery showcasing various types of crops including grains, vegetables, fruits, and legumes. Part of the WDD 131 - Dynamic Web Fundamentals course." />
+    <meta property="og:image" content="https://example.com/image.png" />
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:creator" content="@GeorgeOlwal">
+    <meta name="twitter:title" content="Crop Gallery">
+    <meta name="twitter:description" content="Crop Gallery showcasing various types of crops including grains, vegetables, fruits, and legumes.">
+    <meta name="twitter:image" content="https://example.com/image.png">
     <title>Crop Gallery</title>
+    <link rel="icon" type="image/x-icon" href="../project/images/favicon.ico">    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/crops.css">
     <link rel="stylesheet" href="styles/base.css">    
     <script defer src="scripts/crops.js"></script>
+    <script defer src="scripts/base.js"></script>    
 </head>
 <body>
     <header>
-        <h1>Crop Gallery</h1>
-        <nav>
+        <div class="logo-title">
+            <img src="images/logo.png" alt="Logo" class="logo">
+            <h1>NutriCrop -WDD131 Final Project-<span>George Olwal</span></h1>
+        </div>
+        <button class="hamburger-menu" aria-label="Toggle menu" aria-expanded="false" aria-controls="main-nav">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav id="main-nav">    
+        
             <ul class="navigation">
                 <li><a href="index.html" id="home">Home</a></li>
                 <li><a href="#" id="all">All Crops</a></li>

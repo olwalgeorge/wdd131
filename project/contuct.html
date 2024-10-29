@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="NutriCrop Calculator - Contact Us form.">
+    <meta name="author" content="George Olwal">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourwebsite.com/contact.html">
+    <meta property="og:image" content="https://yourwebsite.com/images/contact-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@yourTwitterHandle">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="styles/contuct.css">
+    <script defer src="scripts/contact.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>Contact Us</h2>
+        <form id="contactForm">
+            <label for="name" class="required">Name</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email" class="required">Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone">
+
+            <label for="message" class="required">Message</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>   
+    <div id="thankYouModal" class="modal">
+        <div class="modal-content">
+            <h3>Thank You!</h3>
+            <p>Your message has been submitted successfully.</p>
+            <button id="okButton">OK</button>
+        </div>
+    </div>    
+</body>
+</html>

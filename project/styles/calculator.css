@@ -1,9 +1,13 @@
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
     background-color: #f4f4f4;
+}
+
+h2 {
+    color: black;
 }
 
 .container {
@@ -12,11 +16,6 @@ body {
     margin: auto;
     overflow: hidden;
     padding: 20px;
-}
-
-h1 {
-    text-align: center;
-    color: #333;
 }
 
 .calculator-container {
@@ -48,6 +47,8 @@ select, input, button {
     margin-bottom: 10px;
     border: 1px solid #ddd;
     border-radius: 4px;
+    box-sizing: border-box;
+    display: block;
 }
 
 button {

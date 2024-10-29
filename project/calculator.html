@@ -3,7 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hydroponic Nutrient Calculator for precision farming, designed for WDD131 by George Olwal. This project offers nutrient calculations, crop management insights, and best farming practices to enhance agricultural productivity and efficiency.">
+    <meta name="keywords" content="Hydroponic Nutrient Calculator, nutrient calculations, crop management insights, best farming practices, agricultural productivity, efficiency, precision farming, WDD131, George Olwal">
+    <meta property="og:title" content="Hydroponic Nutrient Calculator" />
+    <meta property="og:description" content="Hydroponic Nutrient Calculator for precision farming, designed for WDD131 by George Olwal. This project offers nutrient calculations, crop management insights, and best farming practices to enhance agricultural productivity and efficiency." />
+    <meta property="og:image" content="https://i.imgur.com/0yvYh0b.png" />
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:creator" content="@GeorgeOlwal">
+    <meta name="twitter:title" content="Hydroponic Nutrient Calculator">
+    <meta name="twitter:description" content="Hydroponic Nutrient Calculator for precision farming, designed for WDD131 by George Olwal. This project offers nutrient calculations, crop management insights, and best farming practices to enhance agricultural productivity and efficiency.">
+    <meta name="twitter:image" content="https://i.imgur.com/0yvYh0b.png">
     <title>Hydroponic Nutrient Calculator</title>
+    <link rel="icon" type="image/x-icon" href="../project/images/favicon.ico">    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/base.css">
     <link rel="stylesheet" href="styles/calculator.css">
     <script src="scripts/essential_elements.js"></script>
@@ -12,10 +26,32 @@
     <script src="scripts/chemistry.js"></script>
     <script src="scripts/recipe.js"></script>
     <script src="scripts/calculator.js"></script>
+    <script src="scripts/base.js"></script>
+    
 </head>
 <body>
+    <header>
+        <div class="logo-title">
+            <img src="images/logo.png" alt="Logo" class="logo">
+            <h1>NutriCrop -WDD131 Final Project-<span>George Olwal</span></h1>
+        </div>
+        <button class="hamburger-menu" aria-label="Toggle menu" aria-expanded="false" aria-controls="main-nav">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav id="main-nav">        
+            <ul>
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="calculator.html">Calculator</a></li>
+                <li><a href="crops.html">Crops</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
     <div class="container">
-        <h1>Hydroponic Nutrient Calculator</h1>
+        <h2>Hydroponic Nutrient Calculator</h2>
         <div class="calculator-container">
             <div class="form-container">
                 <div id="stageDisplay"></div>
@@ -49,6 +85,9 @@
             </div>
         </div>
     </div>
-
+    <footer>            
+        <p>&copy; <span id="currentyear"></span> NutriCrop Calculator - George Olwal, Kenya</p>
+        <p>Last Modification: <span id="lastModified"></span></p>             
+    </footer> 
 </body>
 </html>
