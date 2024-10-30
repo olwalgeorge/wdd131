@@ -157,6 +157,10 @@ footer p {
         display: flex;
     }
 
+    nav ul li a{
+        color:black;
+    }
+
     nav {
         position: absolute;
         top: 100%;
