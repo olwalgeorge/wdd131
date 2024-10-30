@@ -14,7 +14,7 @@
     --background-color: var(--body-bg);
     --text-color: var(--card-text-color);
     --shadow-medium: 0 8px 16px rgba(0, 0, 0, 0.5);
-   
+      
 }
 
 body {
@@ -53,11 +53,10 @@ h2 {
 
 .hero-content {
     background-color: var(--card-bg);
-    border: 1px solid var(--card-border);
+    border: none;
     width: 100%;
     max-width: 800px;    
     backdrop-filter: blur(5px);
-    box-shadow: var(--shadow-medium);
     z-index: 1;
 }
 
