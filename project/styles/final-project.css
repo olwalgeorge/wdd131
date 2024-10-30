@@ -182,7 +182,7 @@ h2 {
 #potassium::after,
 #calcium::after,
 #magnesium::after {
-    content: "mg/kg";
+    content: "mg/L";
 }
 
 #temperature::after { content: "°C"; }
