@@ -9,7 +9,7 @@ const fertilizers = [
     { name: "Urea phosphate", formula: "CO(NH2)2·H3PO4" },
     { name: "Calcium nitrate (liquid)", formula: "Ca(NO3)2·4H2O" },
     { name: "Calcium nitrate (solid)", formula: "Ca(NO3)2" },
-    { name: "Calcium chloride (liquid)", formula: "CaCl2" },
+    { name: "Calcium chloride (liquid)", formula: "CaCl2·2H2O" },
     { name: "Calcium chloride (solid)", formula: "CaCl2" },
     { name: "Monopotassium phosphate", formula: "KH2PO4" },
     { name: "Potassium nitrate", formula: "KNO3" },
