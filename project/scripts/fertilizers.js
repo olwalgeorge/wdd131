@@ -13,7 +13,7 @@ const fertilizers = [
     { name: "Calcium chloride (solid)", formula: "CaCl2" },
     { name: "Monopotassium phosphate", formula: "KH2PO4" },
     { name: "Potassium nitrate", formula: "KNO3" },
-    { name: "Potassium sulfate", formula: "K2SO4" },
+    { name: "Potassium sulphate", formula: "K2SO4" },
     { name: "Potassium chloride", formula: "KCl" },
     { name: "Magnesium sulphate", formula: "MgSO4·7H2O" },
     { name: "Magnesium nitrate", formula: "Mg(NO3)2·6H2O" },
