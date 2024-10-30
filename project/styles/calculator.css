@@ -110,6 +110,9 @@ th {
     .calculator-container {
         flex-direction: column;
     }
+    nav ul li a{
+        color:black;
+    }
 
     .table-container {
         margin-left: 0;

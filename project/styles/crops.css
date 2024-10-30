@@ -1,8 +1,6 @@
-/* Base Styles */
-body {
-    font-family: 'Roboto', sans-serif;
-    margin: 0;
-    padding: 0;
+
+body {    
+    
     background-color: #f4f4f4;
 }
 
@@ -108,16 +106,17 @@ footer {
     .navigation li {
         margin: 0.25rem 0;
     }
-}
 
-/* Responsive Design */
-@media (max-width: 768px) {
     .container {
         flex-direction: column;
         align-items: center;
     }
     .crop-card {
         width: 90%;
+        margin: 10px auto;
+    }
+    .navigation a{
+        color: black;
     }
 }
 
