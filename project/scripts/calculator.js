@@ -88,7 +88,7 @@ function setupCurrentElement() {
         let statusMessage = '';
         const calculateButton = document.getElementById('calculateButton');
         if (remainingValue <= 0) {
-            statusMessage = ' (Not required or target amount met)';
+            statusMessage = ' (Not required or target amount met, press continue)';
             calculateButton.textContent = 'Continue';
             disableInputFields(true);
         } else {
@@ -113,7 +113,7 @@ function setupCurrentElement() {
 
 function updateStageDisplay() {
     const stageDisplay = document.getElementById('stageDisplay');
-    stageDisplay.textContent = `Current Stage: ${currentStage}`;
+    stageDisplay.textContent = `Crop: Tomato, Current Stage: ${currentStage}`;
     stageDisplay.style.fontWeight = 'bold';
 }
 
